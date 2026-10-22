@@ -102,6 +102,11 @@ def parecido(a, b):
 TITULO = re.compile(
     r"^(?P<directo>DIRECTO\s+)?(?:(?P<ronda>[^:]{1,40}):\s+)?(?P<local>.+?)\s+-\s+(?P<visitante>.+?)\s+T\d{2,4}(?:/\d{2})?\s*·\s*(?P<comp>.+)$"
 )
+# Los "multi" de las noches europeas: todos los partidos a la vez ("Jornada 3: Multieuropa League + Conference T26/27 ·
+# UEFA Europa League"). No llevan "local - visitante".
+MULTI = re.compile(
+    r"^(?P<directo>DIRECTO\s+)?(?:(?P<ronda>[^:]{1,40}):\s+)?(?P<nombre>Multi.+?)\s+T\d{2,4}(?:/\d{2})?\s*·\s*(?P<comp>.+)$", re.I
+)
 NO_PARTIDO = re.compile(r"\b(previa|post|resumen|res[uú]menes|la casa del f[uú]tbol)\b", re.I)
 # Canales solo para bares: no están en la oferta de casa.
 CANAL_BAR = re.compile(r"\bBAR\b")
@@ -117,6 +122,18 @@ def hora_guia(s):
     return dt.datetime.strptime(s, "%Y%m%d%H%M%S %z")
 
 
+def nombre_multi(nombre):
+    """"Multieuropa League + Conference" → "Multi Europa League + Conference"; "Multiliga de Campeones" → "Multi Champions"."""
+    resto = re.sub(r"(?i)^liga de campeones", "Champions", nombre.strip()[len("multi"):].strip())
+    return "Multi " + resto[:1].upper() + resto[1:]
+
+
+def saque(inicio):
+    """La emisión en directo empieza unos minutos antes del saque (18:38 para un partido de las 18:45): se redondea al
+    siguiente cuarto de hora, que es como se anuncian los partidos."""
+    return inicio + dt.timedelta(minutes=(-inicio.minute) % 15, seconds=-inicio.second)
+
+
 # "Ahora en tus canales" para la pantalla de Inicio: lo que se emite ahora y a continuación.
 # (id del canal en la guía, nombre para la tele)
 CANALES_AHORA = [
@@ -124,6 +141,8 @@ CANALES_AHORA = [
     ("Telecinco HD", "Telecinco"), ("La Sexta HD", "laSexta"), ("Teledeporte", "Teledeporte"),
     ("M+ LaLiga HD", "M+ LaLiga"), ("DAZN LaLiga HD", "DAZN LaLiga"), ("M+ Liga de Campeones HD", "M+ Liga de Campeones"),
 ]
+# Cambia cuando cambia lo que se guarda de la guía: así no se reutiliza una caché del formato anterior.
+GUIA_FORMATO = 2
 AHORA_HORAS = 16  # cubre de sobra hasta la siguiente actualización de la guía
 # "Mañaneros 360 T3 E44" → "Mañaneros 360": temporada y episodio no aportan nada en la tele.
 TEMPORADA = re.compile(r"\s+T\d{1,4}(?:/\d{2})?(?:\s+E\d+)?$|\s+E\d+$")
@@ -155,13 +174,24 @@ def leer_guia(competiciones, desde, hasta):
             if NO_PARTIDO.search(titulo) or CANAL_BAR.search(canal or "") or not CANALES_GUIA.match(canal or ""):
                 continue
             m = TITULO.match(titulo)
-            if not m:
+            multi = None if m else MULTI.match(titulo)
+            if not m and not multi:
                 continue
+            m = m or multi
             comp = next((c for c in competiciones if any(k.lower() in m["comp"].lower() for k in c["claves"])), None)
             if comp is None:
                 continue
             inicio = hora_guia(start)
             if not (desde <= inicio <= hasta):
+                continue
+            if multi:
+                emisiones.append({
+                    "competicion": comp["nombre"],
+                    "multi": nombre_multi(multi["nombre"]),
+                    "ronda": (multi["ronda"] or "").strip(),
+                    "inicio": iso(inicio),
+                    "canal": canal,
+                })
                 continue
             emisiones.append({
                 "competicion": comp["nombre"],
@@ -188,7 +218,7 @@ def guia_con_cache(competiciones, desde, hasta, cache_path):
             etag = r.headers.get("ETag")
     except urllib.error.URLError as e:
         print(f"Aviso: no se pudo consultar la guía ({e}); se usa la última", file=sys.stderr)
-    firma = json.dumps([etag, competiciones, CANALES_AHORA, desde.date().isoformat()], sort_keys=True)
+    firma = json.dumps([GUIA_FORMATO, etag, competiciones, CANALES_AHORA, desde.date().isoformat()], sort_keys=True)
     if (etag and cache.get("firma") == firma) or (etag is None and cache):
         return cache["emisiones"], cache.get("programas", {}), cache.get("generada"), False
     emisiones, programas, generada = leer_guia(competiciones, desde - dt.timedelta(days=1), hasta)
@@ -407,7 +437,7 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
         }
 
     # 2) Emisiones de la guía: se cuelgan del partido de football-data que encaje, o crean uno nuevo.
-    for e in emisiones:
+    for e in [e for e in emisiones if "multi" not in e]:
         inicio = dt.datetime.fromisoformat(e["inicio"].replace("Z", "+00:00"))
         if not (desde - dt.timedelta(hours=1) <= inicio <= hasta):
             continue
@@ -430,16 +460,13 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
                 continue
             k = clave_partido(e["local"], e["visitante"], e["inicio"])
             if k not in partidos:
-                # La emisión en directo empieza unos minutos antes del saque (18:38 para un partido de las 18:45):
-                # se redondea al siguiente cuarto de hora, que es como se anuncian los partidos.
-                saque = inicio + dt.timedelta(minutes=(-inicio.minute) % 15, seconds=-inicio.second)
                 # En las competiciones españolas (Hypermotion, Copa...) solo valen escudos de LaLiga: "Sporting" es el de
                 # Gijón, no el de Portugal.
                 ligas = ["PD"] if comp.get("espanola") else None
                 eq_l, eq_v = buscar_equipo(e["local"], equipos, ligas), buscar_equipo(e["visitante"], equipos, ligas)
                 partidos[k] = {
                     "id": "g" + re.sub(r"[^a-z0-9]+", "-", k),
-                    "competicion": e["competicion"], "ronda": e["ronda"], "inicio": iso(saque),
+                    "competicion": e["competicion"], "ronda": e["ronda"], "inicio": iso(saque(inicio)),
                     # Sin football-data no se sabe el estado: la tele lo deduce de la hora.
                     "estado": None, "marcador": None,
                     "local": {"nombre": nombre_visible(e["local"], eq_l), "escudo": eq_l and eq_l["escudo"]},
@@ -451,6 +478,32 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
             mejor["ronda"] = e["ronda"]
         if e["canal"] not in mejor["canales"]:
             mejor["canales"].append(e["canal"])
+
+    # 3) Los multi: uno por cada competición que nombran ("Multieuropa League + Conference" va en las dos) y solo si a
+    # esa hora hay partidos suyos; así no cuela una reposición (el de las 21:00 a veces no lleva "DIRECTO").
+    def hora(p):
+        return dt.datetime.fromisoformat(p["inicio"].replace("Z", "+00:00"))
+    for e in [e for e in emisiones if "multi" in e]:
+        inicio = saque(dt.datetime.fromisoformat(e["inicio"].replace("Z", "+00:00")))
+        if not (desde - dt.timedelta(hours=1) <= inicio <= hasta):
+            continue
+        nombre = e["multi"].lower()
+        for comp in [c["nombre"] for c in competiciones if any(k in nombre for k in c.get("multi", []))] or [e["competicion"]]:
+            if not any(p["competicion"] == comp and "multi" not in p and abs(hora(p) - inicio) <= dt.timedelta(minutes=20)
+                       for p in partidos.values()):
+                continue
+            k = f"multi|{comp}|{iso(inicio)}"
+            if k not in partidos:
+                partidos[k] = {
+                    "id": re.sub(r"[^a-z0-9]+", "-", sin_acentos(k).lower()),
+                    "competicion": comp, "ronda": e["ronda"], "inicio": iso(inicio), "estado": None, "marcador": None,
+                    "multi": e["multi"],
+                    # Las versiones anteriores de la tele esperan dos equipos.
+                    "local": {"nombre": e["multi"], "escudo": None}, "visitante": {"nombre": "", "escudo": None},
+                    "canales": [],
+                }
+            if e["canal"] not in partidos[k]["canales"]:
+                partidos[k]["canales"].append(e["canal"])
 
     resultado = []
     for p in partidos.values():

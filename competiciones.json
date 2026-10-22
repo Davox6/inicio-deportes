@@ -1,13 +1,13 @@
 {
-  "_comentario": "Competiciones de fútbol que salen en Inicio, de más a menos importante ('rango': 1 sale primero en cada día). Se recogen todos sus partidos en directo en los canales de CANALES_GUIA (M+, Movistar, DAZN, LaLiga TV y TDT). 'claves': textos que se buscan en el título de la guía, tras el ·. 'football_data': código en football-data.org (escudos, resultados y el calendario completo). 'jornadas': cuántas jornadas próximas se muestran (solo las de football-data; las demás llegan hasta donde llega la guía de TV, 7 días). 'solo_espanoles': solo partidos con un equipo español (o la Selección). 'espanola': competición española; sus escudos solo se buscan entre los equipos de LaLiga.",
+  "_comentario": "Competiciones de fútbol que salen en Inicio, de más a menos importante ('rango': 1 sale primero en cada día). Se recogen todos sus partidos en directo en los canales de CANALES_GUIA (M+, Movistar, DAZN, LaLiga TV y TDT). 'claves': textos que se buscan en el título de la guía, tras el ·. 'football_data': código en football-data.org (escudos, resultados y el calendario completo). 'jornadas': cuántas jornadas próximas se muestran (solo las de football-data; las demás llegan hasta donde llega la guía de TV, 7 días). 'solo_espanoles': solo partidos con un equipo español (o la Selección). 'multi': textos que, en el nombre de un multi de la guía (\"Multieuropa League + Conference\"), lo ponen en esta competición. 'espanola': competición española; sus escudos solo se buscan entre los equipos de LaLiga.",
   "competiciones": [
-    {"nombre": "Champions", "rango": 1, "claves": ["UEFA Champions League"], "football_data": "CL", "activa": true, "jornadas": 2},
-    {"nombre": "Europa League", "rango": 2, "claves": ["UEFA Europa League"], "activa": true},
+    {"nombre": "Champions", "rango": 1, "claves": ["UEFA Champions League"], "football_data": "CL", "activa": true, "multi": ["campeones", "champions"], "jornadas": 2},
+    {"nombre": "Europa League", "rango": 2, "claves": ["UEFA Europa League"], "activa": true, "multi": ["europa"]},
     {"nombre": "LaLiga", "rango": 3, "claves": ["LALIGA EA SPORTS"], "football_data": "PD", "activa": true, "jornadas": 2},
     {"nombre": "Copa del Rey", "rango": 4, "claves": ["Copa del Rey"], "activa": true, "espanola": true},
     {"nombre": "Supercopa", "rango": 5, "claves": ["Supercopa de Espa"], "activa": true, "espanola": true},
     {"nombre": "Selección", "rango": 6, "claves": ["UEFA Nations League", "Clasificación Mundial", "Clasificación para el Mundial", "Eurocopa", "Amistoso Internacional"], "solo_espanoles": true, "activa": true},
-    {"nombre": "Conference League", "rango": 7, "claves": ["UEFA Conference League"], "activa": true},
+    {"nombre": "Conference League", "rango": 7, "claves": ["UEFA Conference League"], "activa": true, "multi": ["conference"]},
     {"nombre": "Hypermotion", "rango": 8, "claves": ["LALIGA HYPERMOTION"], "activa": true, "espanola": true},
     {"nombre": "Liga F", "rango": 9, "claves": ["Liga F"], "activa": true, "espanola": true},
     {"nombre": "Premier League", "rango": 10, "claves": ["Premier League"], "football_data": "PL", "activa": true, "jornadas": 1},
