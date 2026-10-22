@@ -505,6 +505,88 @@ def ronda_fd(m):
     return FASES.get(m.get("stage"), "")
 
 
+# ---- ESPN: estado y marcador ----------------------------------------------------------------------------
+# Marcador público de ESPN (no oficial, sin clave): va al día, cosa que football-data gratis no hace. Aquí se usa
+# para enlazar cada partido de estas horas con el suyo de ESPN ("espn": liga e id; la tele pregunta por él mientras
+# se juega) y para poner estado y resultado a los que solo salen en la guía (Europa League, Hypermotion...).
+ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/soccer/{liga}/scoreboard?dates={fecha}"
+ESPN_HORAS = (3, 36)  # partidos empezados hace como mucho 3 h, o que empiezan en las próximas 36 h
+ESTADOS_ESPN = {"pre": "PROGRAMADO", "in": "EN_JUEGO", "post": "FINALIZADO"}
+ESTADOS_ESPN_ESPECIALES = {
+    "STATUS_HALFTIME": "DESCANSO", "STATUS_POSTPONED": "APLAZADO", "STATUS_CANCELED": "CANCELADO",
+    "STATUS_SUSPENDED": "SUSPENDIDO", "STATUS_ABANDONED": "SUSPENDIDO", "STATUS_DELAYED": "PROGRAMADO",
+}
+
+
+def eventos_espn(peticiones):
+    """Partidos de ESPN para cada (liga, fecha AAAAMMDD): equipos, hora, estado y marcador."""
+    eventos = []
+    for liga, fecha in sorted(peticiones):
+        try:
+            with descargar(ESPN_URL.format(liga=liga, fecha=fecha), timeout=20) as r:
+                datos = json.load(r)
+        except (urllib.error.URLError, ValueError, TimeoutError) as e:
+            print(f"Aviso: ESPN {liga} {fecha} no responde ({e})", file=sys.stderr)
+            continue
+        for ev in datos.get("events", []):
+            try:
+                lados = {c["homeAway"]: c for c in ev["competitions"][0]["competitors"]}
+                tipo = ev["status"]["type"]
+                estado = ESTADOS_ESPN_ESPECIALES.get(tipo.get("name")) or ESTADOS_ESPN.get(tipo.get("state"))
+                marcador = None
+                if tipo.get("state") in ("in", "post"):
+                    marcador = [int(lados["home"]["score"]), int(lados["away"]["score"])]
+                eventos.append({
+                    "liga": liga, "id": str(ev["id"]), "estado": estado, "marcador": marcador,
+                    "inicio": dt.datetime.fromisoformat(ev["date"].replace("Z", "+00:00")),
+                    "local": [lados["home"]["team"].get(k) for k in ("displayName", "shortDisplayName", "name")],
+                    "visitante": [lados["away"]["team"].get(k) for k in ("displayName", "shortDisplayName", "name")],
+                })
+            except (KeyError, IndexError, ValueError, TypeError):
+                continue  # un partido con datos incompletos no estropea los demás
+    return eventos
+
+
+def enlazar_espn(partidos, competiciones, t):
+    """Enlaza los partidos de estas horas con ESPN y les pone su estado y marcador (si ESPN ya sabe algo)."""
+    por_nombre = {c["nombre"]: c for c in competiciones}
+    cerca = []
+    peticiones = set()
+    for p in partidos:
+        ligas = por_nombre.get(p["competicion"], {}).get("espn", [])
+        inicio = dt.datetime.fromisoformat(p["inicio"].replace("Z", "+00:00"))
+        if p.get("multi") or not ligas or not (
+                t - dt.timedelta(hours=ESPN_HORAS[0]) <= inicio <= t + dt.timedelta(hours=ESPN_HORAS[1])):
+            continue
+        cerca.append((p, ligas, inicio))
+        # ESPN agrupa por fecha de su zona (EE. UU.): un partido de madrugada en España cae el día anterior.
+        for f in {inicio.date(), (inicio - dt.timedelta(hours=6)).date()}:
+            peticiones |= {(liga, f.strftime("%Y%m%d")) for liga in ligas}
+    if not cerca:
+        return 0
+    eventos = eventos_espn(peticiones)
+    enlazados = 0
+    for p, ligas, inicio in cerca:
+        mejor, nota = None, 0.0
+        for e in eventos:
+            if e["liga"] not in ligas or abs((e["inicio"] - inicio).total_seconds()) > 40 * 60:
+                continue
+            n_l = max(parecido(p["local"]["nombre"], x) for x in e["local"] if x)
+            n_v = max(parecido(p["visitante"]["nombre"], x) for x in e["visitante"] if x)
+            n = (n_l + n_v) / 2 if min(n_l, n_v) >= 0.3 else 0.0
+            if n > nota:
+                mejor, nota = e, n
+        if mejor is None or nota < 0.6:
+            continue
+        p["espn"] = {"liga": mejor["liga"], "id": mejor["id"]}
+        if mejor["estado"] and mejor["estado"] != "PROGRAMADO":
+            p["estado"] = mejor["estado"]
+        if mejor["marcador"] is not None:
+            p["marcador"] = mejor["marcador"]
+        enlazados += 1
+    return enlazados
+
+
 def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites, indice_escudos=()):
     por_nombre = {c["nombre"]: c for c in competiciones}
     partidos = {}
@@ -686,6 +768,7 @@ def main():
     indice = cargar_indice_escudos(args.escudos)
     EQUIVALENCIAS.update(cargar_equivalencias(args.equivalencias))
     partidos = juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites, indice)
+    print(f"ESPN: {enlazar_espn(partidos, competiciones, t)} partidos enlazados")
     salida = {
         "version": VERSION,
         "generado": iso(t),
