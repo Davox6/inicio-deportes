@@ -324,13 +324,34 @@ def nombre_visible(nombre_guia, equipo):
     return limpio
 
 
-def buscar_equipo(nombre, equipos):
-    mejor, nota = None, 0.0
+# Filiales ("Real Sociedad B", "Real Madrid Castilla"): no son el primer equipo ni llevan su escudo.
+FILIAL = re.compile(r"\b(b|c|ii|castilla|promesas)$")
+
+
+def buscar_equipo(nombre, equipos, ligas=None):
+    """Equipo de football-data con ese nombre (para el escudo y para saber si es español).
+
+    Aquí no hay hora ni rival que confirmen el emparejamiento, así que un nombre parecido no basta ("Almería" no es
+    el Palmeiras, ni "Real Oviedo" la Real Sociedad): tiene que ser el mismo, contenerlo palabra por palabra sin dudar
+    entre dos equipos, o casi idéntico ("Oporto" y "Porto"). [ligas]: solo equipos de esas competiciones.
+    """
+    clave = clave_equipo(nombre)
+    if not clave or FILIAL.search(clave):
+        return None
+    palabras = set(clave.split())
+    exactos, contienen, casi = [], [], []
     for e in equipos.values():
-        n = max(parecido(nombre, e["nombre"] or ""), parecido(nombre, e["corto"] or ""))
-        if n > nota:
-            mejor, nota = e, n
-    return mejor if nota >= 0.75 else None
+        if ligas and not set(ligas) & set(e.get("competiciones", [])):
+            continue
+        claves = {clave_equipo(n) for n in (e["nombre"], e["corto"]) if n}
+        if clave in claves:
+            exactos.append(e)
+        elif any(palabras <= set(k.split()) or set(k.split()) <= palabras for k in claves if k):
+            contienen.append(e)
+        elif any(difflib.SequenceMatcher(None, clave, k).ratio() >= 0.88 for k in claves if k):
+            casi.append(e)
+    candidatos = exactos or contienen or casi
+    return candidatos[0] if len(candidatos) == 1 else None
 
 
 def es_espanol(nombre, equipos):
@@ -412,7 +433,10 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
                 # La emisión en directo empieza unos minutos antes del saque (18:38 para un partido de las 18:45):
                 # se redondea al siguiente cuarto de hora, que es como se anuncian los partidos.
                 saque = inicio + dt.timedelta(minutes=(-inicio.minute) % 15, seconds=-inicio.second)
-                eq_l, eq_v = buscar_equipo(e["local"], equipos), buscar_equipo(e["visitante"], equipos)
+                # En las competiciones españolas (Hypermotion, Copa...) solo valen escudos de LaLiga: "Sporting" es el de
+                # Gijón, no el de Portugal.
+                ligas = ["PD"] if comp.get("espanola") else None
+                eq_l, eq_v = buscar_equipo(e["local"], equipos, ligas), buscar_equipo(e["visitante"], equipos, ligas)
                 partidos[k] = {
                     "id": "g" + re.sub(r"[^a-z0-9]+", "-", k),
                     "competicion": e["competicion"], "ronda": e["ronda"], "inicio": iso(saque),
