@@ -50,6 +50,22 @@ La tele traduce cada canal de la guía al dial del deco con la base de datos de 
 - `canales`: nombres de canal tal como vienen en la guía.
 - Los escudos son marcas de cada club: aquí solo se enlazan, no se guardan ni se redistribuyen.
 
+## `ahora.json`: lo que se emite en tus canales
+
+Para la pantalla de Inicio ("Ahora en la antena"): la programación de las próximas ~16 horas de La 1, La 2,
+Antena 3, Cuatro, Telecinco, laSexta, Teledeporte y los canales de fútbol (`CANALES_AHORA` en `generar.py`).
+La tele elige el programa actual y el siguiente con su propia hora.
+
+```
+https://raw.githubusercontent.com/Davox6/inicio-deportes/datos/ahora.json
+```
+
+```json
+{ "version": 1, "guia": "dobleM …", "canales": [
+  { "id": "La 1 HD", "nombre": "La 1", "programas": [
+    { "titulo": "Telediario 1", "inicio": "2026-10-22T12:55:00Z", "fin": "2026-10-22T13:30:00Z" } ] } ] }
+```
+
 ## Probar en local
 
 ```

@@ -108,9 +108,25 @@ def hora_guia(s):
     return dt.datetime.strptime(s, "%Y%m%d%H%M%S %z")
 
 
+# "Ahora en tus canales" para la pantalla de Inicio: lo que se emite ahora y a continuación.
+# (id del canal en la guía, nombre para la tele)
+CANALES_AHORA = [
+    ("La 1 HD", "La 1"), ("La 2", "La 2"), ("Antena 3 HD", "Antena 3"), ("Cuatro HD", "Cuatro"),
+    ("Telecinco HD", "Telecinco"), ("La Sexta HD", "laSexta"), ("Teledeporte", "Teledeporte"),
+    ("M+ LaLiga HD", "M+ LaLiga"), ("DAZN LaLiga HD", "DAZN LaLiga"), ("M+ Liga de Campeones HD", "M+ Liga de Campeones"),
+]
+AHORA_HORAS = 16  # cubre de sobra hasta la siguiente actualización de la guía
+# "Mañaneros 360 T3 E44" → "Mañaneros 360": temporada y episodio no aportan nada en la tele.
+TEMPORADA = re.compile(r"\s+T\d{1,4}(?:/\d{2})?(?:\s+E\d+)?$|\s+E\d+$")
+
+
 def leer_guia(competiciones, desde, hasta):
-    """Descarga la guía y devuelve las emisiones en directo de las competiciones activas."""
+    """Descarga la guía: emisiones en directo de las competiciones activas y la programación de CANALES_AHORA."""
     emisiones = []
+    ids_ahora = {c for c, _ in CANALES_AHORA}
+    programas = {c: [] for c in ids_ahora}
+    t = ahora()
+    ventana = (t - dt.timedelta(hours=1), t + dt.timedelta(hours=AHORA_HORAS))
     with descargar(GUIA_URL, timeout=120) as r:
         generada = None
         for _, el in ET.iterparse(gzip.GzipFile(fileobj=r), events=("end",)):
@@ -121,6 +137,10 @@ def leer_guia(competiciones, desde, hasta):
             titulo = (el.findtext("title") or "").strip()
             start, stop, canal = el.get("start"), el.get("stop"), el.get("channel")
             el.clear()  # libera memoria: la guía descomprimida pasa de 50 MB
+            if canal in ids_ahora:
+                ini, fin = hora_guia(start), hora_guia(stop)
+                if fin > ventana[0] and ini < ventana[1]:
+                    programas[canal].append({"titulo": TEMPORADA.sub("", titulo), "inicio": iso(ini), "fin": iso(fin)})
             # Los partidos llevan "DIRECTO" delante, pero no siempre con días de antelación: sin él también se
             # guardan, y luego solo cuentan si empiezan a la hora del partido según football-data (no reposiciones).
             if NO_PARTIDO.search(titulo) or CANAL_BAR.search(canal or ""):
@@ -144,7 +164,7 @@ def leer_guia(competiciones, desde, hasta):
                 "canal": canal,
                 "directo": bool(m["directo"]),
             })
-    return emisiones, generada
+    return emisiones, programas, generada
 
 
 def guia_con_cache(competiciones, desde, hasta, cache_path):
@@ -159,15 +179,13 @@ def guia_con_cache(competiciones, desde, hasta, cache_path):
             etag = r.headers.get("ETag")
     except urllib.error.URLError as e:
         print(f"Aviso: no se pudo consultar la guía ({e}); se usa la última", file=sys.stderr)
-    firma = json.dumps([etag, competiciones, desde.date().isoformat()], sort_keys=True)
-    if etag and cache.get("firma") == firma:
-        return cache["emisiones"], cache.get("generada"), False
-    if etag is None and cache:
-        return cache["emisiones"], cache.get("generada"), False
-    emisiones, generada = leer_guia(competiciones, desde - dt.timedelta(days=1), hasta)
+    firma = json.dumps([etag, competiciones, CANALES_AHORA, desde.date().isoformat()], sort_keys=True)
+    if (etag and cache.get("firma") == firma) or (etag is None and cache):
+        return cache["emisiones"], cache.get("programas", {}), cache.get("generada"), False
+    emisiones, programas, generada = leer_guia(competiciones, desde - dt.timedelta(days=1), hasta)
     with open(cache_path, "w", encoding="utf-8") as f:
-        json.dump({"firma": firma, "generada": generada, "emisiones": emisiones}, f, ensure_ascii=False)
-    return emisiones, generada, True
+        json.dump({"firma": firma, "generada": generada, "emisiones": emisiones, "programas": programas}, f, ensure_ascii=False)
+    return emisiones, programas, generada, True
 
 
 # ---- football-data.org ------------------------------------------------------------------------------------
@@ -331,6 +349,21 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta):
     return resultado
 
 
+def escribir_ahora(programas, generada, carpeta):
+    """ahora.json: programación de los próximos ~16 h de cada canal de CANALES_AHORA (la tele elige el actual)."""
+    canales = [{"id": c, "nombre": n, "programas": sorted(programas.get(c, []), key=lambda p: p["inicio"])}
+               for c, n in CANALES_AHORA]
+    destino = os.path.join(carpeta, "ahora.json")
+    contenido = {"version": 1, "guia": generada, "canales": canales}
+    if os.path.exists(destino):
+        with open(destino, encoding="utf-8") as f:
+            if json.load(f) == contenido:
+                return
+    with open(destino, "w", encoding="utf-8") as f:
+        json.dump(contenido, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"Escrito {destino}: {sum(len(c['programas']) for c in canales)} programas en {len(canales)} canales")
+
+
 # ---- Principal --------------------------------------------------------------------------------------------
 
 def main():
@@ -347,7 +380,7 @@ def main():
     t = ahora()
     desde, hasta = t - dt.timedelta(hours=HORAS_ATRAS), t + dt.timedelta(days=DIAS_ADELANTE)
 
-    emisiones, generada, guia_nueva = guia_con_cache(competiciones, desde, hasta, os.path.join(args.salida, "guia-filtrada.json"))
+    emisiones, programas, generada, guia_nueva = guia_con_cache(competiciones, desde, hasta, os.path.join(args.salida, "guia-filtrada.json"))
     print(f"Guía: {len(emisiones)} emisiones en directo ({'descargada' if guia_nueva else 'sin cambios'}; {generada})")
 
     codigos = [c["football_data"] for c in competiciones if c.get("football_data")]
@@ -361,6 +394,8 @@ def main():
     else:
         print("Aviso: sin FOOTBALL_DATA_KEY; solo con la guía (sin escudos ni marcador)", file=sys.stderr)
     print(f"football-data: {len(fd_partidos)} partidos, {len(equipos)} equipos")
+
+    escribir_ahora(programas, generada, args.salida)
 
     partidos = juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta)
     salida = {
