@@ -28,7 +28,8 @@ FD_URL = "https://api.football-data.org/v4"
 USER_AGENT = "inicio-deportes/1.0 (launcher casero)"
 
 HORAS_ATRAS = 3        # partidos empezados hace como mucho 3 h (pueden seguir en juego)
-DIAS_ADELANTE = 7      # y los de la próxima semana
+DIAS_ADELANTE = 7      # y los de la próxima semana (la guía de TV no llega más allá)
+TRAMO_FD = 10          # football-data no admite más de 10 días por petición
 DURACION_MIN = 120     # duración aproximada si no hay otra
 VERSION = 1
 
@@ -229,10 +230,21 @@ ESTADOS = {
 }
 
 
-def partidos_fd(codigos, clave, desde, hasta):
-    datos = fd(f"/matches?competitions={','.join(codigos)}"
-               f"&dateFrom={desde.date().isoformat()}&dateTo={hasta.date().isoformat()}", clave)
-    return datos.get("matches", [])
+def partidos_fd(competiciones_fd, clave, desde, limites):
+    """
+    Partidos de cada competición hasta su propio horizonte ("dias" en competiciones.json: la Champions se ve con
+    semanas de antelación, aunque su canal no se sepa hasta que la guía de TV lo publique). En tramos de 10 días.
+    """
+    partidos = {}
+    for c in competiciones_fd:
+        inicio, fin = desde.date(), limites[c["football_data"]].date()
+        while inicio <= fin:
+            tramo = min(fin, inicio + dt.timedelta(days=TRAMO_FD - 1))
+            datos = fd(f"/competitions/{c['football_data']}/matches?dateFrom={inicio.isoformat()}&dateTo={tramo.isoformat()}", clave)
+            for m in datos.get("matches", []):
+                partidos[m["id"]] = m
+            inicio = tramo + dt.timedelta(days=1)
+    return list(partidos.values())
 
 
 # ---- Cruce ------------------------------------------------------------------------------------------------
@@ -266,7 +278,20 @@ def es_espanol(nombre, equipos):
     return bool(e and "PD" in e["competiciones"])
 
 
-def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta):
+# Fases de las competiciones europeas (football-data) como se dicen en la tele.
+FASES = {
+    "PLAYOFFS": "Play-off", "LAST_32": "Dieciseisavos", "LAST_16": "Octavos de final",
+    "QUARTER_FINALS": "Cuartos de final", "SEMI_FINALS": "Semifinales", "FINAL": "Final",
+}
+
+
+def ronda_fd(m):
+    if m.get("stage") in ("REGULAR_SEASON", "LEAGUE_STAGE", "GROUP_STAGE") and m.get("matchday"):
+        return f"Jornada {m['matchday']}"
+    return FASES.get(m.get("stage"), "")
+
+
+def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites):
     por_nombre = {c["nombre"]: c for c in competiciones}
     partidos = {}
 
@@ -277,7 +302,7 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta):
     codigo_a_comp = {c.get("football_data"): c["nombre"] for c in competiciones if c.get("football_data")}
     for m in fd_partidos:
         inicio = dt.datetime.fromisoformat(m["utcDate"].replace("Z", "+00:00"))
-        if not (desde <= inicio <= hasta):
+        if not (desde <= inicio <= limites.get(m["competition"]["code"], hasta)):
             continue
         local, visitante = m["homeTeam"], m["awayTeam"]
         if not local.get("name") or not visitante.get("name"):
@@ -288,7 +313,7 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta):
         partidos[f"fd{m['id']}"] = {
             "id": f"fd{m['id']}",
             "competicion": codigo_a_comp.get(m["competition"]["code"], m["competition"]["name"]),
-            "ronda": f"Jornada {m['matchday']}" if m.get("matchday") and m.get("stage") == "REGULAR_SEASON" else "",
+            "ronda": ronda_fd(m),
             "inicio": iso(inicio),
             "estado": ESTADOS.get(m["status"], "PROGRAMADO"),
             "marcador": [marcador.get("home"), marcador.get("away")] if marcador.get("home") is not None else None,
@@ -383,12 +408,15 @@ def main():
     emisiones, programas, generada, guia_nueva = guia_con_cache(competiciones, desde, hasta, os.path.join(args.salida, "guia-filtrada.json"))
     print(f"Guía: {len(emisiones)} emisiones en directo ({'descargada' if guia_nueva else 'sin cambios'}; {generada})")
 
-    codigos = [c["football_data"] for c in competiciones if c.get("football_data")]
+    competiciones_fd = [c for c in competiciones if c.get("football_data")]
+    codigos = [c["football_data"] for c in competiciones_fd]
+    # Horizonte de cada competición de football-data (por defecto, el de la guía de TV).
+    limites = {c["football_data"]: t + dt.timedelta(days=c.get("dias", DIAS_ADELANTE)) for c in competiciones_fd}
     equipos, fd_partidos = {}, []
     if clave and codigos:
         try:
             equipos = equipos_fd(codigos, clave, os.path.join(args.salida, "equipos.json"))
-            fd_partidos = partidos_fd(codigos, clave, desde, hasta)
+            fd_partidos = partidos_fd(competiciones_fd, clave, desde, limites)
         except urllib.error.URLError as e:
             print(f"Aviso: football-data no responde ({e}); solo con la guía", file=sys.stderr)
     else:
@@ -397,7 +425,7 @@ def main():
 
     escribir_ahora(programas, generada, args.salida)
 
-    partidos = juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta)
+    partidos = juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites)
     salida = {
         "version": VERSION,
         "generado": iso(t),

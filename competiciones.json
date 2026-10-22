@@ -1,13 +1,78 @@
 {
-  "_comentario": "Competiciones que salen en Inicio. 'claves' se buscan en el título de la guía (tras el ·). 'football_data' es el código de la competición en football-data.org (escudos y resultados); sin él, los escudos se buscan entre los equipos conocidos. 'solo_espanoles': solo partidos con algún equipo de LaLiga.",
+  "_comentario": "Competiciones que salen en Inicio. 'claves' se buscan en el título de la guía (tras el ·). 'football_data' es el código de la competición en football-data.org (escudos y resultados); sin él, los escudos se buscan entre los equipos conocidos. 'solo_espanoles': solo partidos con algún equipo de LaLiga. 'dias': cuántos días por delante se miran (solo competiciones de football-data; las demás dependen de la guía de TV, que cubre 7). Más allá de la guía, el partido sale sin canal todavía.",
   "competiciones": [
-    { "nombre": "LaLiga", "claves": ["LALIGA EA SPORTS"], "football_data": "PD", "activa": true, "solo_espanoles": false },
-    { "nombre": "Champions", "claves": ["UEFA Champions League", "Liga de Campeones"], "football_data": "CL", "activa": true, "solo_espanoles": false },
-    { "nombre": "Europa League", "claves": ["UEFA Europa League"], "activa": true, "solo_espanoles": true },
-    { "nombre": "Conference League", "claves": ["UEFA Conference League"], "activa": true, "solo_espanoles": true },
-    { "nombre": "Copa del Rey", "claves": ["Copa del Rey"], "activa": true, "solo_espanoles": true },
-    { "nombre": "Supercopa", "claves": ["Supercopa de Espa"], "activa": true, "solo_espanoles": false },
-    { "nombre": "Selección", "claves": ["UEFA Nations League", "Clasificación Mundial", "Mundial", "Eurocopa", "Amistoso Internacional"], "activa": true, "solo_espanoles": true },
-    { "nombre": "Hypermotion", "claves": ["LALIGA HYPERMOTION"], "activa": false, "solo_espanoles": false }
+    {
+      "nombre": "LaLiga",
+      "claves": [
+        "LALIGA EA SPORTS"
+      ],
+      "football_data": "PD",
+      "activa": true,
+      "solo_espanoles": false,
+      "dias": 10
+    },
+    {
+      "nombre": "Champions",
+      "claves": [
+        "UEFA Champions League",
+        "Liga de Campeones"
+      ],
+      "football_data": "CL",
+      "activa": true,
+      "solo_espanoles": false,
+      "dias": 45
+    },
+    {
+      "nombre": "Europa League",
+      "claves": [
+        "UEFA Europa League"
+      ],
+      "activa": true,
+      "solo_espanoles": true
+    },
+    {
+      "nombre": "Conference League",
+      "claves": [
+        "UEFA Conference League"
+      ],
+      "activa": true,
+      "solo_espanoles": true
+    },
+    {
+      "nombre": "Copa del Rey",
+      "claves": [
+        "Copa del Rey"
+      ],
+      "activa": true,
+      "solo_espanoles": true
+    },
+    {
+      "nombre": "Supercopa",
+      "claves": [
+        "Supercopa de Espa"
+      ],
+      "activa": true,
+      "solo_espanoles": false
+    },
+    {
+      "nombre": "Selección",
+      "claves": [
+        "UEFA Nations League",
+        "Clasificación Mundial",
+        "Mundial",
+        "Eurocopa",
+        "Amistoso Internacional"
+      ],
+      "activa": true,
+      "solo_espanoles": true
+    },
+    {
+      "nombre": "Hypermotion",
+      "claves": [
+        "LALIGA HYPERMOTION"
+      ],
+      "activa": false,
+      "solo_espanoles": false
+    }
   ]
 }
