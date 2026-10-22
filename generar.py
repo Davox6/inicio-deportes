@@ -304,10 +304,13 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta):
                 continue
             k = clave_partido(e["local"], e["visitante"], e["inicio"])
             if k not in partidos:
+                # La emisión en directo empieza unos minutos antes del saque (18:38 para un partido de las 18:45):
+                # se redondea al siguiente cuarto de hora, que es como se anuncian los partidos.
+                saque = inicio + dt.timedelta(minutes=(-inicio.minute) % 15, seconds=-inicio.second)
                 eq_l, eq_v = buscar_equipo(e["local"], equipos), buscar_equipo(e["visitante"], equipos)
                 partidos[k] = {
                     "id": "g" + re.sub(r"[^a-z0-9]+", "-", k),
-                    "competicion": e["competicion"], "ronda": e["ronda"], "inicio": e["inicio"],
+                    "competicion": e["competicion"], "ronda": e["ronda"], "inicio": iso(saque),
                     # Sin football-data no se sabe el estado: la tele lo deduce de la hora.
                     "estado": None, "marcador": None,
                     "local": {"nombre": nombre_visible(e["local"], eq_l), "escudo": eq_l and eq_l["escudo"]},
