@@ -28,7 +28,10 @@ FD_URL = "https://api.football-data.org/v4"
 USER_AGENT = "inicio-deportes/1.0 (launcher casero)"
 
 HORAS_ATRAS = 3        # partidos empezados hace como mucho 3 h (pueden seguir en juego)
-DIAS_ADELANTE = 7      # y los de la próxima semana (la guía de TV no llega más allá)
+DIAS_ADELANTE = 7      # la guía de TV no llega más allá
+# Días que se buscan en football-data según cuántas jornadas se muestran (las de la Champions se separan semanas).
+BUSQUEDA_DIAS = {1: 14, 2: 24, 3: 35}
+CHAMPIONS_BUSQUEDA = 45
 TRAMO_FD = 10          # football-data no admite más de 10 días por petición
 DURACION_MIN = 120     # duración aproximada si no hay otra
 VERSION = 1
@@ -97,11 +100,16 @@ def parecido(a, b):
 # ---- Guía de TV -------------------------------------------------------------------------------------------
 
 TITULO = re.compile(
-    r"^(?P<directo>DIRECTO\s+)?(?:(?P<ronda>[^:]{1,40}):\s+)?(?P<local>.+?)\s+-\s+(?P<visitante>.+?)\s+T\d\d(?:/\d\d)?\s*·\s*(?P<comp>.+)$"
+    r"^(?P<directo>DIRECTO\s+)?(?:(?P<ronda>[^:]{1,40}):\s+)?(?P<local>.+?)\s+-\s+(?P<visitante>.+?)\s+T\d{2,4}(?:/\d{2})?\s*·\s*(?P<comp>.+)$"
 )
 NO_PARTIDO = re.compile(r"\b(previa|post|resumen|res[uú]menes|la casa del f[uú]tbol)\b", re.I)
 # Canales solo para bares: no están en la oferta de casa.
 CANAL_BAR = re.compile(r"\bBAR\b")
+# Canales de los que se recogen partidos: Movistar Plus+ (M+), DAZN, LaLiga TV y los de la TDT que dan fútbol.
+# La tele decide luego cuáles se pueden ver (los que tiene el deco, y los de DAZN en su app).
+CANALES_GUIA = re.compile(r"^(M\+ |Movistar Plus|DAZN|LaLiga TV|La 1 HD$|La 2$|Teledeporte$)")
+# Los tres grandes: sus partidos van primero dentro de su competición.
+GRANDES = {"real madrid", "barcelona", "atletico madrid"}
 
 
 def hora_guia(s):
@@ -144,7 +152,7 @@ def leer_guia(competiciones, desde, hasta):
                     programas[canal].append({"titulo": TEMPORADA.sub("", titulo), "inicio": iso(ini), "fin": iso(fin)})
             # Los partidos llevan "DIRECTO" delante, pero no siempre con días de antelación: sin él también se
             # guardan, y luego solo cuentan si empiezan a la hora del partido según football-data (no reposiciones).
-            if NO_PARTIDO.search(titulo) or CANAL_BAR.search(canal or ""):
+            if NO_PARTIDO.search(titulo) or CANAL_BAR.search(canal or "") or not CANALES_GUIA.match(canal or ""):
                 continue
             m = TITULO.match(titulo)
             if not m:
@@ -191,7 +199,17 @@ def guia_con_cache(competiciones, desde, hasta, cache_path):
 
 # ---- football-data.org ------------------------------------------------------------------------------------
 
+_peticiones = []
+
+
 def fd(ruta, clave):
+    """Petición a football-data respetando su límite gratuito (10 por minuto): si hace falta, espera."""
+    import time
+    ahora_s = time.monotonic()
+    while len([x for x in _peticiones if ahora_s - x < 60]) >= 9:
+        time.sleep(3)
+        ahora_s = time.monotonic()
+    _peticiones.append(ahora_s)
     with descargar(f"{FD_URL}{ruta}", {"X-Auth-Token": clave}) as r:
         return json.load(r)
 
@@ -230,20 +248,64 @@ ESTADOS = {
 }
 
 
-def partidos_fd(competiciones_fd, clave, desde, limites):
+def proximas_jornadas(competiciones_fd, fd_partidos, desde):
+    """
+    De cada competición, solo sus próximas 'jornadas' jornadas (por orden de fecha). Las jornadas con pocos partidos
+    (un aplazado de otra jornada) no cuentan como una de las N, pero salen si caen dentro de las elegidas.
+    """
+    elegidos = []
+    for c in competiciones_fd:
+        codigo = c["football_data"]
+        propios = sorted(
+            ((dt.datetime.fromisoformat(m["utcDate"].replace("Z", "+00:00")), m) for m in fd_partidos
+             if m["competition"]["code"] == codigo and m["homeTeam"].get("name")),
+            key=lambda x: x[0],
+        )
+        propios = [(i, m) for i, m in propios if i >= desde]
+        grupos = {}
+        for i, m in propios:
+            grupos.setdefault((m.get("stage"), m.get("matchday")), []).append(i)
+        orden = sorted(grupos, key=lambda k: min(grupos[k]))
+        grandes = [k for k in orden if len(grupos[k]) >= 3][: c.get("jornadas", 1)]
+        if not grandes:
+            grandes = orden[:1]
+        fin = max(max(grupos[k]) for k in grandes) if grandes else desde
+        elegidos += [m for i, m in propios if i <= fin]
+    return elegidos
+
+
+def ampliar_busqueda(c):
+    return CHAMPIONS_BUSQUEDA if c.get("football_data") == "CL" else BUSQUEDA_DIAS.get(c.get("jornadas", 1), 21)
+
+
+def partidos_fd(competiciones_fd, clave, desde, limites, cache_path):
     """
     Partidos de cada competición hasta su propio horizonte ("dias" en competiciones.json: la Champions se ve con
     semanas de antelación, aunque su canal no se sepa hasta que la guía de TV lo publique). En tramos de 10 días.
     """
     partidos = {}
+    cache = {}
+    if os.path.exists(cache_path):
+        with open(cache_path, encoding="utf-8") as f:
+            cache = json.load(f)
     for c in competiciones_fd:
         inicio, fin = desde.date(), limites[c["football_data"]].date()
         while inicio <= fin:
             tramo = min(fin, inicio + dt.timedelta(days=TRAMO_FD - 1))
-            datos = fd(f"/competitions/{c['football_data']}/matches?dateFrom={inicio.isoformat()}&dateTo={tramo.isoformat()}", clave)
-            for m in datos.get("matches", []):
+            ruta = f"/competitions/{c['football_data']}/matches?dateFrom={inicio.isoformat()}&dateTo={tramo.isoformat()}"
+            lejano = inicio > desde.date() + dt.timedelta(days=TRAMO_FD)
+            guardado = cache.get(ruta)
+            if lejano and guardado and ahora().timestamp() - guardado["t"] < 6 * 3600:
+                matches = guardado["matches"]
+            else:
+                matches = fd(ruta, clave).get("matches", [])
+                if lejano:
+                    cache[ruta] = {"t": ahora().timestamp(), "matches": matches}
+            for m in matches:
                 partidos[m["id"]] = m
             inicio = tramo + dt.timedelta(days=1)
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump({k: v for k, v in cache.items() if ahora().timestamp() - v["t"] < 6 * 3600}, f, ensure_ascii=False)
     return list(partidos.values())
 
 
@@ -337,7 +399,7 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
                 continue
             n_l = max(parecido(e["local"], p["_nombres"][0]), parecido(e["local"], p["_nombres"][1]))
             n_v = max(parecido(e["visitante"], p["_nombres"][2]), parecido(e["visitante"], p["_nombres"][3]))
-            n = min(n_l, n_v)
+            n = min(n_l, n_v) if p["competicion"] != e["competicion"] else max(min(n_l, n_v), (n_l + n_v) / 2 - 0.1)
             if n > nota:
                 mejor, nota = p, n
         if mejor is None or nota < 0.6:
@@ -368,9 +430,12 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
 
     resultado = []
     for p in partidos.values():
-        p.pop("_nombres", None)
+        nombres = p.pop("_nombres", None) or ()
+        p["prioridad"] = por_nombre.get(p["competicion"], {}).get("rango", 99)
+        p["destacado"] = any(clave_equipo(n) in GRANDES for n in nombres if n) or \
+            any(clave_equipo(x["nombre"]) in GRANDES for x in (p["local"], p["visitante"]))
         resultado.append(p)
-    resultado.sort(key=lambda p: (p["inicio"], p["competicion"]))
+    resultado.sort(key=lambda p: (p["inicio"], p["prioridad"]))
     return resultado
 
 
@@ -411,12 +476,15 @@ def main():
     competiciones_fd = [c for c in competiciones if c.get("football_data")]
     codigos = [c["football_data"] for c in competiciones_fd]
     # Horizonte de cada competición de football-data (por defecto, el de la guía de TV).
-    limites = {c["football_data"]: t + dt.timedelta(days=c.get("dias", DIAS_ADELANTE)) for c in competiciones_fd}
+    # Se busca con margen (una jornada de Champions puede caer a 6 semanas) y luego se dejan las próximas N jornadas.
+    busqueda = {c["football_data"]: t + dt.timedelta(days=ampliar_busqueda(c)) for c in competiciones_fd}
+    limites = dict(busqueda)
     equipos, fd_partidos = {}, []
     if clave and codigos:
         try:
             equipos = equipos_fd(codigos, clave, os.path.join(args.salida, "equipos.json"))
-            fd_partidos = partidos_fd(competiciones_fd, clave, desde, limites)
+            fd_partidos = partidos_fd(competiciones_fd, clave, desde, busqueda, os.path.join(args.salida, "fd-cache.json"))
+            fd_partidos = proximas_jornadas(competiciones_fd, fd_partidos, desde)
         except urllib.error.URLError as e:
             print(f"Aviso: football-data no responde ({e}); solo con la guía", file=sys.stderr)
     else:
