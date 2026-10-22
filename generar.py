@@ -69,6 +69,11 @@ ALIAS = {
     "alaves": "alaves", "celta": "celta vigo", "rayo": "rayo vallecano",
     "bayern munich": "bayern munchen", "bayern": "bayern munchen", "leipzig": "rb leipzig",
     "psg": "paris saint germain", "inter": "internazionale", "milan": "ac milan",
+    # Formas cortas o traducidas de la guía de Movistar.
+    "man city": "manchester city", "man united": "manchester united", "mgladbach": "borussia monchengladbach",
+    "shaktar": "shakhtar donetsk", "sl bratislava": "slovan bratislava", "pae aek": "aek athens",
+    "salzburgo": "red bull salzburg", "friburgo": "freiburg", "venecia": "venezia",
+    "universitatea craiova": "csu craiova", "olympique lyon": "olympique lyonnais",
 }
 
 
@@ -391,6 +396,102 @@ def es_espanol(nombre, equipos):
     return bool(e and "PD" in e["competiciones"])
 
 
+# ---- Escudos de nuestra biblioteca ---------------------------------------------------------------------
+
+# Nombres revisados a mano (escudos-equivalencias.json); main() los carga.
+EQUIVALENCIAS = {}
+
+def cargar_indice_escudos(ruta):
+    """escudos-indice.json (herramientas/indice_escudos.py) con las claves de cada nombre ya calculadas."""
+    if not os.path.exists(ruta):
+        print(f"Aviso: sin {ruta}; solo escudos de football-data", file=sys.stderr)
+        return []
+    with open(ruta, encoding="utf-8") as f:
+        equipos = json.load(f)["equipos"]
+    for e in equipos:
+        # "Stade Rennais (Rennes)", "Hamburger (HSV)": lo de dentro del paréntesis es otro nombre del mismo equipo.
+        nombres = []
+        for n in [e["nombre"]] + e["alias"]:
+            m = re.match(r"^(.*?)\s*\((.*)\)\s*$", n)
+            nombres += [m.group(1), m.group(2)] if m else [n]
+        e["_claves"] = {k for k in (clave_equipo(n) for n in nombres) if k}
+    return equipos
+
+
+def cargar_equivalencias(ruta):
+    """escudos-equivalencias.json: nombre → [{id, competiciones}] revisados a mano (id null = sin escudo a propósito)."""
+    if not os.path.exists(ruta):
+        return {}
+    with open(ruta, encoding="utf-8") as f:
+        return json.load(f)["equivalencias"]
+
+
+def escudo_de(nombre, comp, indice, _cache={}, equivalencias=None):
+    """
+    ID del escudo de un equipo en nuestra biblioteca ("club:celtic") o None. Como buscar_equipo (mismo nombre,
+    contenido palabra por palabra o casi idéntico; un filial solo con su propio escudo), pero los empates se
+    deciden por el partido: primero los equipos de esa competición en la biblioteca ("escudos_de"), luego los de
+    su país, luego el nombre más directo. En una liga nacional, solo clubes de ese país ("pais"). Si aún
+    hay dudas, None: mejor las iniciales que el escudo de otro club.
+    """
+    # Primero lo revisado a mano: si el nombre está, manda (también cuando dice que no lleva escudo).
+    revisados = (equivalencias or EQUIVALENCIAS).get(nombre)
+    if revisados:
+        de_esta = [r for r in revisados if comp.get("nombre") in r.get("competiciones", [])]
+        if de_esta or len(revisados) == 1:
+            return (de_esta or revisados)[0]["id"]
+    clave = clave_equipo(nombre)
+    if not clave or not indice:
+        return None
+    memo = (clave, comp.get("nombre"))
+    if memo in _cache:
+        return _cache[memo]
+    palabras = set(clave.split())
+    filial = bool(FILIAL.search(clave))
+    selecciones = bool(comp.get("selecciones"))
+    exactos, contienen, casi = [], [], []
+    for e in indice:
+        if e["seleccion"] != selecciones:
+            continue
+        if clave in e["_claves"]:
+            exactos.append(e)
+        elif filial:
+            continue
+        # Contenido palabra por palabra; si el nombre de la biblioteca es el corto, como mucho una palabra menos
+        # ("Brighton" vale por "Brighton Hove"; "Tenerife" no vale por "Costa Adeje Tenerife").
+        elif any(palabras <= set(k.split()) or (set(k.split()) <= palabras and len(palabras) - len(k.split()) <= 1)
+                 for k in e["_claves"]):
+            contienen.append(e)
+        elif any(difflib.SequenceMatcher(None, clave, k).quick_ratio() >= 0.88
+                 and difflib.SequenceMatcher(None, clave, k).ratio() >= 0.88 for k in e["_claves"]):
+            casi.append(e)
+    # Un nombre solo parecido únicamente vale si el club juega esa competición (según la biblioteca).
+    casi = [e for e in casi if set(e["competiciones"]) & set(comp.get("escudos_de", []))]
+    elegido = None
+    for grupo in (exactos, contienen, casi):
+        if grupo:
+            elegido = _desempatar(grupo, comp, palabras)
+            break
+    _cache[memo] = elegido and elegido["id"]
+    return _cache[memo]
+
+
+def _desempatar(candidatos, comp, palabras):
+    # En una liga nacional (o una copa española), solo clubes de ese país: "Brest" no es el Dinamo Brest bielorruso.
+    if comp.get("pais") and not comp.get("selecciones"):
+        candidatos = [e for e in candidatos if e["pais"] == comp["pais"]]
+    if len(candidatos) > 1:
+        quedan = [e for e in candidatos if set(e["competiciones"]) & set(comp.get("escudos_de", []))]
+        if quedan:
+            candidatos = quedan
+    if len(candidatos) > 1:
+        # El nombre más directo: el que menos palabras añade ("Benfica" → "SL Benfica", no "Abrantes e Benfica").
+        sobra = {e["id"]: min(len(set(k.split()) - palabras) for k in e["_claves"]) for e in candidatos}
+        menos = min(sobra.values())
+        candidatos = [e for e in candidatos if sobra[e["id"]] == menos]
+    return candidatos[0] if len(candidatos) == 1 else None
+
+
 # Fases de las competiciones europeas (football-data) como se dicen en la tele.
 FASES = {
     "PLAYOFFS": "Play-off", "LAST_32": "Dieciseisavos", "LAST_16": "Octavos de final",
@@ -404,7 +505,7 @@ def ronda_fd(m):
     return FASES.get(m.get("stage"), "")
 
 
-def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites):
+def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites, indice_escudos=()):
     por_nombre = {c["nombre"]: c for c in competiciones}
     partidos = {}
 
@@ -513,6 +614,14 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
             any(clave_equipo(x["nombre"]) in GRANDES for x in (p["local"], p["visitante"]))
         # Con algún equipo español (de LaLiga): va antes que los demás de su competición.
         p["espanol"] = p["destacado"] or any(es_espanol(n, equipos) for n in nombres[::2] if n)
+        # El escudo de nuestra biblioteca (la tele lo lleva dentro): se prueba con cada nombre que se tiene del
+        # equipo (football-data y guía) y el que se ve en la tele.
+        if not p.get("multi"):
+            comp = por_nombre.get(p["competicion"], {})
+            for i, lado in enumerate(("local", "visitante")):
+                nombres_lado = [n for n in nombres[i * 2:i * 2 + 2] if n] + [p[lado]["nombre"]]
+                p[lado]["escudo_id"] = next(
+                    (x for x in (escudo_de(n, comp, indice_escudos) for n in nombres_lado) if x), None)
         resultado.append(p)
     resultado.sort(key=lambda p: (p["inicio"], p["prioridad"]))
     return resultado
@@ -539,6 +648,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--salida", default="salida")
     ap.add_argument("--config", default="competiciones.json")
+    ap.add_argument("--escudos", default="escudos-indice.json")
+    ap.add_argument("--equivalencias", default="escudos-equivalencias.json")
     args = ap.parse_args()
     os.makedirs(args.salida, exist_ok=True)
 
@@ -572,7 +683,9 @@ def main():
 
     escribir_ahora(programas, generada, args.salida)
 
-    partidos = juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites)
+    indice = cargar_indice_escudos(args.escudos)
+    EQUIVALENCIAS.update(cargar_equivalencias(args.equivalencias))
+    partidos = juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites, indice)
     salida = {
         "version": VERSION,
         "generado": iso(t),

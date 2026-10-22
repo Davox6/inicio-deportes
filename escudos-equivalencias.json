@@ -1,0 +1,1684 @@
+{
+"_comentario": "Nombres de la guía de TV y football-data con su escudo (o null: sin escudo a propósito, p. ej. un filial). Revisado por Codex; lo usa generar.py antes de buscar.",
+"equivalencias": {
+"1. FC Köln": [
+{
+"id": "club:1-fc-koln",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"AZ Alkmaar": [
+{
+"id": "club:az-alkmaar",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Ajax": [
+{
+"id": "club:ajax",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"Al Faisaly": [
+{
+"id": "club:al-faisaly",
+"competiciones": [
+"Liga Saudí"
+]
+}
+],
+"Al Hilal": [
+{
+"id": "club:al-hilal",
+"competiciones": [
+"Liga Saudí"
+]
+}
+],
+"Al Ittihad": [
+{
+"id": "club:al-ittihad",
+"competiciones": [
+"Liga Saudí"
+]
+}
+],
+"Al Nassr": [
+{
+"id": "club:al-nassr",
+"competiciones": [
+"Liga Saudí"
+]
+}
+],
+"Al Qadsiah": [
+{
+"id": "club:al-qadsiah",
+"competiciones": [
+"Liga Saudí"
+]
+}
+],
+"Alavés": [
+{
+"id": "club:deportivo-alaves",
+"competiciones": [
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Albacete BP": [
+{
+"id": "club:albacete-balompie",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Almería": [
+{
+"id": "club:ud-almeria",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Anaitasuna": [
+{
+"id": null,
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Anderlecht": [
+{
+"id": "club:rsc-anderlecht",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Angers SCO": [
+{
+"id": "club:angers-sco",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Ararat Armenia": [
+{
+"id": "club:fc-ararat-armenia",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Arsenal": [
+{
+"id": "club:arsenal",
+"competiciones": [
+"Champions",
+"Premier League"
+]
+}
+],
+"Aston Villa": [
+{
+"id": "club:aston-villa",
+"competiciones": [
+"Champions",
+"Premier League"
+]
+}
+],
+"Atalanta": [
+{
+"id": "club:atalanta",
+"competiciones": [
+"Conference League",
+"Serie A"
+]
+}
+],
+"Athletic": [
+{
+"id": "club:athletic-club-bilbao",
+"competiciones": [
+"LaLiga",
+"Liga F"
+]
+}
+],
+"Atlético": [
+{
+"id": "club:atletico-madrid",
+"competiciones": [
+"Champions",
+"LaLiga",
+"Liga F"
+]
+}
+],
+"Augsburg": [
+{
+"id": "club:fc-augsburg",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Auxerre": [
+{
+"id": "club:aj-auxerre",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Badalona Women": [
+{
+"id": null,
+"competiciones": [
+"Liga F"
+]
+}
+],
+"Bahia": [
+{
+"id": "club:bahia",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Barcelona": [
+{
+"id": "club:fc-barcelona",
+"competiciones": [
+"Champions",
+"LaLiga",
+"Liga F"
+]
+}
+],
+"Bayern": [
+{
+"id": "club:bayern-munich",
+"competiciones": [
+"Bundesliga",
+"Champions"
+]
+}
+],
+"Benfica": [
+{
+"id": "club:sl-benfica",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Besiktas": [
+{
+"id": "club:besiktas",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Boca Juniors": [
+{
+"id": "club:boca-juniors",
+"competiciones": [
+"Liga Argentina"
+]
+}
+],
+"Bodø/Glimt": [
+{
+"id": "club:fk-bodo-glimt",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Bologna": [
+{
+"id": "club:bologna",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Botafogo": [
+{
+"id": "club:botafogo",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Bournemouth": [
+{
+"id": "club:afc-bournemouth",
+"competiciones": [
+"Europa League",
+"Premier League"
+]
+}
+],
+"Braga": [
+{
+"id": "club:sc-braga",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"Bragantino": [
+{
+"id": "club:rb-bragantino",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Bremen": [
+{
+"id": "club:werder-bremen",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Brentford": [
+{
+"id": "club:brentford",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Brest": [
+{
+"id": "club:stade-brestois-29",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Brighton Hove": [
+{
+"id": "club:brighton-and-hove-albion",
+"competiciones": [
+"Conference League",
+"Premier League"
+]
+}
+],
+"Cagliari": [
+{
+"id": "club:cagliari",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Celje": [
+{
+"id": "club:nk-celje",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Celta": [
+{
+"id": "club:celta-vigo",
+"competiciones": [
+"Copa del Rey",
+"Europa League",
+"LaLiga"
+]
+}
+],
+"Celta B": [
+{
+"id": null,
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Celtic": [
+{
+"id": "club:celtic",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Chapecoense": [
+{
+"id": "club:chapecoense",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Chelsea": [
+{
+"id": "club:chelsea",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Club Brugge": [
+{
+"id": "club:club-brugge",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Clube do Remo": [
+{
+"id": "club:club-de-remo",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Como 1907": [
+{
+"id": "club:como-1907",
+"competiciones": [
+"Champions",
+"Serie A"
+]
+}
+],
+"Corinthians": [
+{
+"id": "club:corinthians",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Coritiba": [
+{
+"id": "club:coritiba",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Costa Adeje Tenerife": [
+{
+"id": null,
+"competiciones": [
+"Liga F"
+]
+}
+],
+"Coventry City": [
+{
+"id": "club:coventry-city",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Cruzeiro": [
+{
+"id": "club:cruzeiro",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Crystal Palace": [
+{
+"id": "club:crystal-palace",
+"competiciones": [
+"Europa League",
+"Premier League"
+]
+}
+],
+"Córdoba": [
+{
+"id": "club:cordoba",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Deportivo": [
+{
+"id": "club:deportivo-la-coruna",
+"competiciones": [
+"LaLiga"
+]
+}
+],
+"Dinamo Zagreb": [
+{
+"id": "club:gnk-dinamo-zagreb",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Diriyah": [
+{
+"id": "club:diriyah",
+"competiciones": [
+"Liga Saudí"
+]
+}
+],
+"Dortmund": [
+{
+"id": "club:borussia-dortmund",
+"competiciones": [
+"Bundesliga",
+"Champions"
+]
+}
+],
+"Eibar": [
+{
+"id": "club:sd-eibar",
+"competiciones": [
+"Hypermotion",
+"Liga F"
+]
+}
+],
+"Elche": [
+{
+"id": "club:elche-cf",
+"competiciones": [
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Eldense": [
+{
+"id": "club:cd-eldense",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Elversberg": [
+{
+"id": "club:sv-elversberg",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Espanyol": [
+{
+"id": "club:rcd-espanyol-barcelona",
+"competiciones": [
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Estudiantes": [
+{
+"id": "club:estudiantes-de-la-plata",
+"competiciones": [
+"Libertadores"
+]
+}
+],
+"Everton": [
+{
+"id": "club:everton",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Fenerbahçe": [
+{
+"id": "club:fenerbahce",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Ferencváros": [
+{
+"id": "club:ferencvaros-tc",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Feyenoord": [
+{
+"id": "club:feyenoord",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Fiorentina": [
+{
+"id": "club:fiorentina",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Flamengo": [
+{
+"id": "club:flamengo",
+"competiciones": [
+"Brasileirão",
+"Libertadores"
+]
+}
+],
+"Fluminense": [
+{
+"id": "club:fluminense",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Frankfurt": [
+{
+"id": "club:eintracht-frankfurt",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Freiburg": [
+{
+"id": "club:sc-freiburg",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Friburgo": [
+{
+"id": "club:sc-freiburg",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"Frosinone": [
+{
+"id": "club:frosinone-calcio",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Fulham": [
+{
+"id": "club:fulham",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Galatasaray": [
+{
+"id": "club:galatasaray",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Genoa": [
+{
+"id": "club:genoa",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Getafe": [
+{
+"id": "club:getafe-cf",
+"competiciones": [
+"Conference League",
+"LaLiga"
+]
+}
+],
+"Girona": [
+{
+"id": "club:girona-fc",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Granada": [
+{
+"id": "club:granada",
+"competiciones": [
+"Hypermotion",
+"Liga F"
+]
+}
+],
+"Grêmio": [
+{
+"id": "club:gremio",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"HSV": [
+{
+"id": "club:hamburger-sv",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Hapoel Beer Sheva": [
+{
+"id": "club:hapoel-beer-sheva",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Hoffenheim": [
+{
+"id": "club:tsg-hoffenheim",
+"competiciones": [
+"Bundesliga",
+"Europa League"
+]
+}
+],
+"Hull City": [
+{
+"id": "club:hull-city",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Independiente": [
+{
+"id": "club:independiente",
+"competiciones": [
+"Liga Argentina"
+]
+}
+],
+"Inter": [
+{
+"id": "club:inter-milan",
+"competiciones": [
+"Champions",
+"Serie A"
+]
+}
+],
+"Inter Club D'Escaldes": [
+{
+"id": "club:inter-club-descaldes",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"Internacional": [
+{
+"id": "club:sc-internacional",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Ipswich Town": [
+{
+"id": "club:ipswich-town",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Jablonec": [
+{
+"id": "club:fk-jablonec",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"Jagiellonia Bialystok": [
+{
+"id": "club:jagiellonia-bialystok",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Juventus": [
+{
+"id": "club:juventus",
+"competiciones": [
+"Europa League",
+"Serie A"
+]
+}
+],
+"Kaa Gent": [
+{
+"id": "club:kaa-gent",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"LASK": [
+{
+"id": "club:lask",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Las Palmas": [
+{
+"id": "club:las-palmas",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Lazio": [
+{
+"id": "club:lazio",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Le Havre": [
+{
+"id": "club:le-havre-ac",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Le Mans": [
+{
+"id": "club:le-mans-fc",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Lecce": [
+{
+"id": "club:lecce",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Lech Poznan": [
+{
+"id": "club:lech-poznan",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Leeds United": [
+{
+"id": "club:leeds-united",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Leganés": [
+{
+"id": "club:cd-leganes",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Levante": [
+{
+"id": "club:levante-ud",
+"competiciones": [
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Leverkusen": [
+{
+"id": "club:bayer-leverkusen",
+"competiciones": [
+"Bundesliga",
+"Europa League"
+]
+}
+],
+"Lille": [
+{
+"id": "club:losc-lille",
+"competiciones": [
+"Champions",
+"Ligue 1"
+]
+}
+],
+"Lillestrom": [
+{
+"id": "club:lillestrom-sk",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Liverpool": [
+{
+"id": "club:liverpool-fc",
+"competiciones": [
+"Champions",
+"Premier League"
+]
+}
+],
+"Logroño United": [
+{
+"id": null,
+"competiciones": [
+"Liga F"
+]
+}
+],
+"Lorient": [
+{
+"id": "club:fc-lorient",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Lugano": [
+{
+"id": "club:fc-lugano",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"M'gladbach": [
+{
+"id": "club:borussia-monchengladbach",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Madrid CFF": [
+{
+"id": null,
+"competiciones": [
+"Liga F"
+]
+}
+],
+"Mainz": [
+{
+"id": "club:mainz-05",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Mallorca": [
+{
+"id": "club:rcd-mallorca",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Man City": [
+{
+"id": "club:manchester-city",
+"competiciones": [
+"Champions",
+"Premier League"
+]
+}
+],
+"Man United": [
+{
+"id": "club:manchester-united",
+"competiciones": [
+"Champions",
+"Premier League"
+]
+}
+],
+"Manacor": [
+{
+"id": null,
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Marseille": [
+{
+"id": "club:olympique-de-marseille-om",
+"competiciones": [
+"Europa League",
+"Ligue 1"
+]
+}
+],
+"Milan": [
+{
+"id": "club:ac-milan",
+"competiciones": [
+"Europa League",
+"Serie A"
+]
+}
+],
+"Mineiro": [
+{
+"id": "club:atletico-mineiro",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Mirassol": [
+{
+"id": "club:mirassol-fc",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Monaco": [
+{
+"id": "club:as-monaco",
+"competiciones": [
+"Conference League",
+"Ligue 1"
+]
+}
+],
+"Monza": [
+{
+"id": "club:ac-monza",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Málaga": [
+{
+"id": "club:malaga-cf",
+"competiciones": [
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"NEC": [
+{
+"id": "club:nec-nijmegen",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Napoli": [
+{
+"id": "club:napoli",
+"competiciones": [
+"Champions",
+"Serie A"
+]
+}
+],
+"Navalcarnero": [
+{
+"id": "club:cda-navalcarnero",
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Newcastle": [
+{
+"id": "club:newcastle-united",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Nice": [
+{
+"id": "club:ogc-nice",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Nottingham": [
+{
+"id": "club:nottingham-forest",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"OFI Creta": [
+{
+"id": "club:ofi-crete",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Olympiacos": [
+{
+"id": "club:olympiacos",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Olympique Lyon": [
+{
+"id": "club:olympique-lyonnais",
+"competiciones": [
+"Europa League",
+"Ligue 1"
+]
+}
+],
+"Omonia Nicosia": [
+{
+"id": "club:ac-omonia-nicosia",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Osasuna": [
+{
+"id": "club:osasuna",
+"competiciones": [
+"LaLiga"
+]
+}
+],
+"PAE AEK": [
+{
+"id": "club:aek-athens",
+"competiciones": [
+"Champions"
+]
+}
+],
+"PSG": [
+{
+"id": "club:paris-saint-germain-psg",
+"competiciones": [
+"Champions",
+"Ligue 1"
+]
+}
+],
+"PSV": [
+{
+"id": "club:psv-eindhoven",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Palmeiras": [
+{
+"id": "club:palmeiras",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Paranaense": [
+{
+"id": "club:athletico-paranaense",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Paris FC": [
+{
+"id": "club:paris-fc",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Parma": [
+{
+"id": "club:parma",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Pinatar": [
+{
+"id": null,
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Porto": [
+{
+"id": "club:fc-porto",
+"competiciones": [
+"Champions"
+]
+}
+],
+"RB Leipzig": [
+{
+"id": "club:rb-leipzig",
+"competiciones": [
+"Bundesliga",
+"Champions"
+]
+}
+],
+"RC Lens": [
+{
+"id": "club:rc-lens",
+"competiciones": [
+"Champions",
+"Ligue 1"
+]
+}
+],
+"Racing": [
+{
+"id": "club:racing-santander",
+"competiciones": [
+"LaLiga"
+]
+}
+],
+"Racing de Avellaneda": [
+{
+"id": "club:racing-club",
+"competiciones": [
+"Liga Argentina"
+]
+}
+],
+"Rapid": [
+{
+"id": null,
+"competiciones": [
+"Liga F"
+]
+}
+],
+"Rayo Vallecano": [
+{
+"id": "club:rayo-vallecano",
+"competiciones": [
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Real Betis": [
+{
+"id": "club:real-betis-balompie",
+"competiciones": [
+"Champions",
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Real Madrid": [
+{
+"id": "club:real-madrid",
+"competiciones": [
+"Champions",
+"LaLiga",
+"Liga F"
+]
+}
+],
+"Real Oviedo": [
+{
+"id": "club:real-oviedo",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Real Sociedad": [
+{
+"id": "club:real-sociedad",
+"competiciones": [
+"Europa League",
+"LaLiga"
+]
+}
+],
+"Real Sociedad B": [
+{
+"id": null,
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Real Valladolid": [
+{
+"id": "club:real-valladolid",
+"competiciones": [
+"Hypermotion"
+]
+}
+],
+"Recreativo": [
+{
+"id": "club:recreativo-huelva",
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Rennes": [
+{
+"id": "club:stade-rennais",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"River Plate": [
+{
+"id": "club:river-plate",
+"competiciones": [
+"Liga Argentina"
+]
+}
+],
+"Roma": [
+{
+"id": "club:roma",
+"competiciones": [
+"Champions",
+"Serie A"
+]
+}
+],
+"SC Paderborn": [
+{
+"id": "club:sc-paderborn-07",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Sabah FK": [
+{
+"id": "club:sabah-fk",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Salamanca USD": [
+{
+"id": "club:salamanca-cf-uds",
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Salzburgo": [
+{
+"id": "club:red-bull-salzburg",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Santos": [
+{
+"id": "club:santos-fc",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Sassuolo": [
+{
+"id": "club:sassuolo",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Schalke": [
+{
+"id": "club:schalke-04",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Sestao": [
+{
+"id": "club:sestao-river",
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Sevilla": [
+{
+"id": "club:sevilla-fc",
+"competiciones": [
+"LaLiga",
+"Liga F"
+]
+}
+],
+"Shaktar": [
+{
+"id": "club:shakhtar-donetsk",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Sl. Bratislava": [
+{
+"id": "club:sk-slovan-bratislava",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Slavia Praha": [
+{
+"id": "club:slavia-praha",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Sparta Praga": [
+{
+"id": "club:sparta-praha",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Sporting Alcázar": [
+{
+"id": null,
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Sporting CP": [
+{
+"id": "club:sporting-cp",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Stade Rennais": [
+{
+"id": "club:stade-rennais",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Strasbourg": [
+{
+"id": "club:rc-strasbourg-alsace",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Sturm Graz": [
+{
+"id": "club:sk-sturm-graz",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Stuttgart": [
+{
+"id": "club:vfb-stuttgart",
+"competiciones": [
+"Bundesliga",
+"Champions"
+]
+}
+],
+"Sunderland": [
+{
+"id": "club:sunderland",
+"competiciones": [
+"Europa League",
+"Premier League"
+]
+}
+],
+"São Paulo": [
+{
+"id": "club:sao-paulo",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Tarancón": [
+{
+"id": null,
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Tavernes": [
+{
+"id": null,
+"competiciones": [
+"Copa del Rey"
+]
+}
+],
+"Torino": [
+{
+"id": "club:torino",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Torreense": [
+{
+"id": "club:scu-torreense",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Tottenham": [
+{
+"id": "club:tottenham-hotspur",
+"competiciones": [
+"Premier League"
+]
+}
+],
+"Toulouse": [
+{
+"id": "club:toulouse-fc",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Troyes": [
+{
+"id": "club:troyes",
+"competiciones": [
+"Ligue 1"
+]
+}
+],
+"Udinese": [
+{
+"id": "club:udinese",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Union Berlin": [
+{
+"id": "club:union-berlin",
+"competiciones": [
+"Bundesliga"
+]
+}
+],
+"Union Saint-Gilloise": [
+{
+"id": "club:union-saint-gilloise",
+"competiciones": [
+"Europa League"
+]
+}
+],
+"Universitatea Craiova": [
+{
+"id": "club:csu-craiova",
+"competiciones": [
+"Conference League"
+]
+}
+],
+"Valencia": [
+{
+"id": "club:valencia-cf",
+"competiciones": [
+"Copa del Rey",
+"LaLiga",
+"Liga F"
+]
+}
+],
+"Vasco da Gama": [
+{
+"id": "club:vasco-da-gama",
+"competiciones": [
+"Brasileirão"
+]
+}
+],
+"Venecia": [
+{
+"id": "club:venezia-fc",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Venezia FC": [
+{
+"id": "club:venezia-fc",
+"competiciones": [
+"Serie A"
+]
+}
+],
+"Viking": [
+{
+"id": "club:viking-fk",
+"competiciones": [
+"Champions"
+]
+}
+],
+"Villarreal": [
+{
+"id": "club:villarreal-cf",
+"competiciones": [
+"Champions",
+"Copa del Rey",
+"LaLiga"
+]
+}
+],
+"Vitória": [
+{
+"id": "club:vitoria",
+"competiciones": [
+"Brasileirão"
+]
+}
+]
+}
+}
