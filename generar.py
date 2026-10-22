@@ -85,9 +85,10 @@ def parecido(a, b):
         return 0.0
     if ka == kb:
         return 1.0
-    if ka in kb or kb in ka:
-        return 0.9
     ta, tb = set(ka.split()), set(kb.split())
+    # Palabras completas: "lillestrom" contiene "lille", pero no es el Lille.
+    if ta <= tb or tb <= ta:
+        return 0.9
     comunes = len(ta & tb) / max(1, min(len(ta), len(tb)))
     return max(comunes * 0.85, difflib.SequenceMatcher(None, ka, kb).ratio())
 
@@ -218,11 +219,14 @@ def partidos_fd(codigos, clave, desde, hasta):
 
 # ---- Cruce ------------------------------------------------------------------------------------------------
 
+# Nombres cortos de football-data que en España se dicen de otra forma.
+CORTOS = {"Barça": "Barcelona", "Atleti": "Atlético", "Santander": "Racing", "Sevilla FC": "Sevilla"}
+
+
 def nombre_visible(nombre_guia, equipo):
     """Nombre corto y claro para la tele: el de la guía sin siglas ("RCD Espanyol de Barcelona" → "Espanyol")."""
     if equipo and equipo.get("corto"):
-        corto = {"Barça": "Barcelona", "Atleti": "Atlético"}.get(equipo["corto"], equipo["corto"])
-        return corto
+        return CORTOS.get(equipo["corto"], equipo["corto"])
     limpio = re.sub(r"^(?:(?:FC|CF|CD|UD|SD|RC|RCD|CA|R\.)\s+)+", "", nombre_guia)
     limpio = re.sub(r"\s+(?:FC|CF|CD|UD|SD|SAD)$", "", limpio)
     return limpio
