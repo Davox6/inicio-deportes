@@ -434,6 +434,8 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
         p["prioridad"] = por_nombre.get(p["competicion"], {}).get("rango", 99)
         p["destacado"] = any(clave_equipo(n) in GRANDES for n in nombres if n) or \
             any(clave_equipo(x["nombre"]) in GRANDES for x in (p["local"], p["visitante"]))
+        # Con algún equipo español (de LaLiga): va antes que los demás de su competición.
+        p["espanol"] = p["destacado"] or any(es_espanol(n, equipos) for n in nombres[::2] if n)
         resultado.append(p)
     resultado.sort(key=lambda p: (p["inicio"], p["prioridad"]))
     return resultado
