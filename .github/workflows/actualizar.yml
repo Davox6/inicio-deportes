@@ -1,0 +1,68 @@
+name: Actualizar deportes
+
+on:
+  schedule:
+    # Cada 15 minutos (evitando el minuto 0, el más cargado en GitHub). La guía de TV cambia 4 veces al día;
+    # el resto de ejecuciones solo traen estado y marcador de football-data y no publican si nada cambia.
+    - cron: "7,22,37,52 * * * *"
+    # Una vez al mes, un commit en main: GitHub desactiva las tareas programadas de un repositorio público
+    # tras 60 días sin actividad.
+    - cron: "30 3 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Recuperar los datos publicados (cachés de guía y equipos)
+        run: |
+          mkdir -p salida
+          if git fetch --depth=1 origin datos; then
+            git --work-tree=salida checkout origin/datos -- .
+            git reset -q
+          fi
+          sha256sum salida/* 2>/dev/null > /tmp/antes || true
+
+      - name: Generar deportes.json
+        env:
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+        run: python generar.py --salida salida
+
+      - name: Publicar en la rama datos (solo si ha cambiado algo)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          sha256sum salida/* > /tmp/despues
+          if cmp -s /tmp/antes /tmp/despues; then
+            echo "Nada nuevo que publicar"
+            exit 0
+          fi
+          cd salida
+          git init -q -b datos
+          git add -A
+          git -c user.name="inicio-deportes" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "Datos $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" HEAD:datos
+
+      - name: Mantenimiento mensual
+        if: github.event.schedule == '30 3 1 * *'
+        run: |
+          date -u +%FT%TZ > MANTENIMIENTO
+          git add MANTENIMIENTO
+          git -c user.name="inicio-deportes" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "Mantenimiento mensual"
+          git push -q
