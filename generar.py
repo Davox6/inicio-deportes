@@ -140,17 +140,54 @@ def saque(inicio):
 
 
 # "Ahora en tus canales" para la pantalla de Inicio: lo que se emite ahora y a continuación.
-# (id del canal en la guía, nombre para la tele)
+# (id del canal en la guía, nombre para la tele). Los de la TDT, en el orden del escaparate de Inicio.
 CANALES_AHORA = [
     ("La 1 HD", "La 1"), ("La 2", "La 2"), ("Antena 3 HD", "Antena 3"), ("Cuatro HD", "Cuatro"),
-    ("Telecinco HD", "Telecinco"), ("La Sexta HD", "laSexta"), ("Teledeporte", "Teledeporte"),
+    ("Telecinco HD", "Telecinco"), ("La Sexta HD", "laSexta"), ("Telemadrid", "Telemadrid"), ("La Otra", "La Otra"),
+    ("Clan", "Clan"), ("24 Horas", "24 Horas"), ("Teledeporte", "Teledeporte"), ("Neox", "Neox"), ("Nova", "Nova"),
+    ("Factoría de Ficción", "FDF"), ("Mega", "Mega"), ("Energy", "Energy"), ("Divinity", "Divinity"),
+    ("TRECE", "Trece"), ("DMAX", "DMAX"), ("Atreseries", "Atreseries"), ("Ten", "Ten"), ("DKISS", "DKISS"),
+    ("Be Mad", "Be Mad"), ("Boing", "Boing"), ("Real Madrid TV", "Real Madrid TV"),
     ("M+ LaLiga HD", "M+ LaLiga"), ("DAZN LaLiga HD", "DAZN LaLiga"), ("M+ Liga de Campeones HD", "M+ Liga de Campeones"),
 ]
 # Cambia cuando cambia lo que se guarda de la guía: así no se reutiliza una caché del formato anterior.
-GUIA_FORMATO = 2
+GUIA_FORMATO = 3
 AHORA_HORAS = 16  # cubre de sobra hasta la siguiente actualización de la guía
 # "Mañaneros 360 T3 E44" → "Mañaneros 360": temporada y episodio no aportan nada en la tele.
 TEMPORADA = re.compile(r"\s+T\d{1,4}(?:/\d{2})?(?:\s+E\d+)?$|\s+E\d+$")
+# La descripción empieza por los géneros entre paréntesis y acaba con la ficha (" · País: ...", " · Dirección: ...").
+DESC_GENEROS = re.compile(r"^\([^)]*\)\s*")
+DESC_FICHA = re.compile(r"\s*·\s*(?:País|Dirección|Reparto|Guion|Música|Fotografía|Productora|Presentador).*$", re.S)
+DESC_MAX = 220
+# Foto horizontal de Movistar+ (1920×1080): la guía trae la vertical ("dispficha"); "ficha" es la misma, apaisada.
+FOTO_MOVISTAR = re.compile(r"^https://www\.movistarplus\.es/recorte/n/dispficha/(\w+)$")
+
+
+def programa(el, titulo, ini, fin):
+    """Un programa de la guía para ahora.json: título limpio, episodio, géneros, año, edad, descripción y foto."""
+    nombre, _, episodio = titulo.partition(" · ")
+    p = {"titulo": TEMPORADA.sub("", nombre.strip()), "inicio": iso(ini), "fin": iso(fin)}
+    if episodio.strip():
+        p["episodio"] = episodio.strip()
+    generos = [c.text.strip() for c in el.findall("category") if c.text]
+    if generos:
+        p["genero"] = " · ".join(dict.fromkeys(generos))
+    anio = (el.findtext("date") or "").strip()[:4]
+    if anio.isdigit():
+        p["anio"] = int(anio)
+    edad = (el.findtext("rating/value") or "").strip()
+    if edad:
+        p["edad"] = edad
+    desc = DESC_FICHA.sub("", DESC_GENEROS.sub("", (el.findtext("desc") or "").strip())).strip()
+    if len(desc) > DESC_MAX:
+        desc = desc[:DESC_MAX].rsplit(" ", 1)[0].rstrip(",;:.") + "…"
+    if desc:
+        p["descripcion"] = desc
+    icono = el.find("icon")
+    m = FOTO_MOVISTAR.match(icono.get("src", "") if icono is not None else "")
+    if m:
+        p["foto"] = f"https://www.movistarplus.es/recorte/n/ficha/{m.group(1)}"
+    return p
 
 
 def leer_guia(competiciones, desde, hasta):
@@ -169,11 +206,11 @@ def leer_guia(competiciones, desde, hasta):
                 continue
             titulo = (el.findtext("title") or "").strip()
             start, stop, canal = el.get("start"), el.get("stop"), el.get("channel")
-            el.clear()  # libera memoria: la guía descomprimida pasa de 50 MB
             if canal in ids_ahora:
                 ini, fin = hora_guia(start), hora_guia(stop)
                 if fin > ventana[0] and ini < ventana[1]:
-                    programas[canal].append({"titulo": TEMPORADA.sub("", titulo), "inicio": iso(ini), "fin": iso(fin)})
+                    programas[canal].append(programa(el, titulo, ini, fin))
+            el.clear()  # libera memoria: la guía descomprimida pasa de 50 MB
             # Los partidos llevan "DIRECTO" delante, pero no siempre con días de antelación: sin él también se
             # guardan, y luego solo cuentan si empiezan a la hora del partido según football-data (no reposiciones).
             if NO_PARTIDO.search(titulo) or CANAL_BAR.search(canal or "") or not CANALES_GUIA.match(canal or ""):

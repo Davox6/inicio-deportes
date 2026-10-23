@@ -52,9 +52,10 @@ La tele traduce cada canal de la guía al dial del deco con la base de datos de 
 
 ## `ahora.json`: lo que se emite en tus canales
 
-Para la pantalla de Inicio ("Ahora en la antena"): la programación de las próximas ~16 horas de La 1, La 2,
-Antena 3, Cuatro, Telecinco, laSexta, Teledeporte y los canales de fútbol (`CANALES_AHORA` en `generar.py`).
-La tele elige el programa actual y el siguiente con su propia hora.
+Para la pantalla de Inicio (el escaparate de la TDT y "Ahora en tus canales"): la programación de las próximas
+~16 horas de los canales de la TDT de Madrid (La 1, La 2, Antena 3, Cuatro, Telecinco, laSexta, Telemadrid, La Otra,
+Clan…) y de los canales de fútbol (`CANALES_AHORA` en `generar.py`). La tele elige el programa actual y el siguiente
+con su propia hora.
 
 ```
 https://raw.githubusercontent.com/Davox6/inicio-deportes/datos/ahora.json
@@ -62,9 +63,16 @@ https://raw.githubusercontent.com/Davox6/inicio-deportes/datos/ahora.json
 
 ```json
 { "version": 1, "guia": "dobleM …", "canales": [
-  { "id": "La 1 HD", "nombre": "La 1", "programas": [
-    { "titulo": "Telediario 1", "inicio": "2026-10-22T12:55:00Z", "fin": "2026-10-22T13:30:00Z" } ] } ] }
+  { "id": "Antena 3 HD", "nombre": "Antena 3", "programas": [
+    { "titulo": "La Voz", "inicio": "2026-10-23T20:10:00Z", "fin": "2026-10-23T23:00:00Z",
+      "episodio": "Audiciones a ciegas (VI)", "genero": "Entretenimiento · Concurso", "anio": 2026, "edad": "TP",
+      "descripcion": "«La Voz» continúa con la sexta ronda…",
+      "foto": "https://www.movistarplus.es/recorte/n/ficha/MA3P4426681" } ] } ] }
 ```
+
+- Solo `titulo`, `inicio` y `fin` van siempre; el resto, si la guía lo trae.
+- `descripcion`: sin los géneros del principio ni la ficha del final, y como mucho 220 caracteres.
+- `foto`: la imagen horizontal (1920×1080) de la ficha de Movistar+ que enlaza la guía. Solo se enlaza.
 
 ## Probar en local
 
