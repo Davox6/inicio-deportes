@@ -148,10 +148,14 @@ CANALES_AHORA = [
     ("Factoría de Ficción", "FDF"), ("Mega", "Mega"), ("Energy", "Energy"), ("Divinity", "Divinity"),
     ("TRECE", "Trece"), ("DMAX", "DMAX"), ("Atreseries", "Atreseries"), ("Ten", "Ten"), ("DKISS", "DKISS"),
     ("Be Mad", "Be Mad"), ("Boing", "Boing"), ("Real Madrid TV", "Real Madrid TV"),
+    # Los de cine, series y documentales del deco de Orange (escaparate "Cartelera" de Inicio).
+    ("STAR Channel HD", "Star Channel"), ("AMC HD", "AMC"), ("Warner TV HD", "Warner TV"),
+    ("Comedy Central HD", "Comedy Central"), ("Calle 13 HD", "Calle 13"), ("SciFi HD", "SciFi"),
+    ("Canal Hollywood HD", "Canal Hollywood"), ("Odisea", "Odisea"), ("Canal Cocina", "Canal Cocina"),
     ("M+ LaLiga HD", "M+ LaLiga"), ("DAZN LaLiga HD", "DAZN LaLiga"), ("M+ Liga de Campeones HD", "M+ Liga de Campeones"),
 ]
 # Cambia cuando cambia lo que se guarda de la guía: así no se reutiliza una caché del formato anterior.
-GUIA_FORMATO = 3
+GUIA_FORMATO = 4
 AHORA_HORAS = 16  # cubre de sobra hasta la siguiente actualización de la guía
 # "Mañaneros 360 T3 E44" → "Mañaneros 360": temporada y episodio no aportan nada en la tele.
 TEMPORADA = re.compile(r"\s+T\d{1,4}(?:/\d{2})?(?:\s+E\d+)?$|\s+E\d+$")
@@ -161,6 +165,8 @@ DESC_FICHA = re.compile(r"\s*·\s*(?:País|Dirección|Reparto|Guion|Música|Foto
 DESC_MAX = 220
 # Foto horizontal de Movistar+ (1920×1080): la guía trae la vertical ("dispficha"); "ficha" es la misma, apaisada.
 FOTO_MOVISTAR = re.compile(r"^https://www\.movistarplus\.es/recorte/n/dispficha/(\w+)$")
+# Cartel vertical de la guía de Orange (720×960), para los programas sin ficha de Movistar.
+CARTEL_ORANGE = re.compile(r"^https://orangetv\.orange\.es/.*/VERTICAL/[\w.]+$")
 
 
 def programa(el, titulo, ini, fin):
@@ -184,9 +190,13 @@ def programa(el, titulo, ini, fin):
     if desc:
         p["descripcion"] = desc
     icono = el.find("icon")
-    m = FOTO_MOVISTAR.match(icono.get("src", "") if icono is not None else "")
+    src = icono.get("src", "") if icono is not None else ""
+    m = FOTO_MOVISTAR.match(src)
     if m:
         p["foto"] = f"https://www.movistarplus.es/recorte/n/ficha/{m.group(1)}"
+    # El cartel de Movistar se saca de la foto (".../ficha/X" → ".../dispficha/X"): solo se guarda el de Orange.
+    if not m and CARTEL_ORANGE.match(src):
+        p["cartel"] = src
     return p
 
 
