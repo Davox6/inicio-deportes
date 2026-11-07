@@ -683,6 +683,10 @@ def juntar(emisiones, fd_partidos, equipos, competiciones, desde, hasta, limites
             n = min(n_l, n_v) if p["competicion"] != e["competicion"] else max(min(n_l, n_v), (n_l + n_v) / 2 - 0.1)
             if n > nota:
                 mejor, nota = p, n
+        # Si la emisión es de otra competición que el partido, los dos nombres tienen que ser casi iguales: con 0,6
+        # "Real Sporting - Real Valladolid" (Hypermotion) se pegaba a "Real Sociedad - Rayo Vallecano" (LaLiga).
+        if mejor is not None and mejor["competicion"] != e["competicion"] and nota < 0.85:
+            mejor = None
         if mejor is None or nota < 0.6:
             if not e["directo"]:
                 continue  # sin partido de football-data que lo confirme, puede ser una reposición
