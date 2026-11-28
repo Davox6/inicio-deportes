@@ -1,0 +1,3003 @@
+{
+ "version": 1,
+ "generado": "2026-11-28T04:56:36Z",
+ "guia": "dobleM 27/11/2026 20:47",
+ "partidos": [
+  {
+   "id": "g2026-11-28-al-hazem-al-nasser",
+   "competicion": "Liga Saudí",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-28T12:15:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Al Hazem",
+    "escudo": null,
+    "escudo_id": "club:al-hazem"
+   },
+   "visitante": {
+    "nombre": "Al Nasser",
+    "escudo": null,
+    "escudo_id": "club:al-nassr"
+   },
+   "canales": [
+    "M+ Liga de Campeones HD",
+    "M+ Vamos 2"
+   ],
+   "prioridad": 18,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ksa.1",
+    "id": "401900442"
+   }
+  },
+  {
+   "id": "fd564760",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-28T13:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Real Betis",
+    "escudo": "https://crests.football-data.org/90.png",
+    "escudo_id": "club:real-betis-balompie"
+   },
+   "visitante": {
+    "nombre": "Rayo Vallecano",
+    "escudo": "https://crests.football-data.org/87.png",
+    "escudo_id": "club:rayo-vallecano"
+   },
+   "canales": [
+    "M+ LaLiga HD",
+    "M+ LaLiga 2 HD",
+    "M+ LaLiga HDR"
+   ],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true,
+   "espn": {
+    "liga": "esp.1",
+    "id": "401882796"
+   }
+  },
+  {
+   "id": "g2026-11-28-las-palmas-andorra",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-28T13:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Las Palmas",
+    "escudo": null,
+    "escudo_id": "club:las-palmas"
+   },
+   "visitante": {
+    "nombre": "Andorra",
+    "escudo": null,
+    "escudo_id": "club:fc-andorra"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401883101"
+   }
+  },
+  {
+   "id": "fd558513",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-28T14:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Frosinone",
+    "escudo": "https://crests.football-data.org/470.png",
+    "escudo_id": "club:frosinone-calcio"
+   },
+   "visitante": {
+    "nombre": "Parma",
+    "escudo": "https://crests.football-data.org/112.png",
+    "escudo_id": "club:parma"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ita.1",
+    "id": "401875081"
+   }
+  },
+  {
+   "id": "fd565866",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-28T14:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "1. FC Köln",
+    "escudo": "https://crests.football-data.org/1.png",
+    "escudo_id": "club:1-fc-koln"
+   },
+   "visitante": {
+    "nombre": "Elversberg",
+    "escudo": "https://crests.football-data.org/719.png",
+    "escudo_id": "club:sv-elversberg"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ger.1",
+    "id": "401884721"
+   }
+  },
+  {
+   "id": "fd565867",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-28T14:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Mainz",
+    "escudo": "https://crests.football-data.org/15.png",
+    "escudo_id": "club:mainz-05"
+   },
+   "visitante": {
+    "nombre": "Union Berlin",
+    "escudo": "https://crests.football-data.org/28.png",
+    "escudo_id": "club:union-berlin"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ger.1",
+    "id": "401884723"
+   }
+  },
+  {
+   "id": "fd565868",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-28T14:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "SC Paderborn",
+    "escudo": "https://crests.football-data.org/29.png",
+    "escudo_id": "club:sc-paderborn-07"
+   },
+   "visitante": {
+    "nombre": "Schalke",
+    "escudo": "https://crests.football-data.org/6.png",
+    "escudo_id": "club:schalke-04"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ger.1",
+    "id": "401884719"
+   }
+  },
+  {
+   "id": "fd565874",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-28T14:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "HSV",
+    "escudo": "https://crests.football-data.org/7.png",
+    "escudo_id": "club:hamburger-sv"
+   },
+   "visitante": {
+    "nombre": "Bayern",
+    "escudo": "https://crests.football-data.org/5.png",
+    "escudo_id": "club:bayern-munich"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd560652",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T15:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Leeds United",
+    "escudo": "https://crests.football-data.org/341.png",
+    "escudo_id": "club:leeds-united"
+   },
+   "visitante": {
+    "nombre": "Coventry City",
+    "escudo": "https://crests.football-data.org/1076.png",
+    "escudo_id": "club:coventry-city"
+   },
+   "canales": [],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879227"
+   }
+  },
+  {
+   "id": "fd560655",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T15:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Man United",
+    "escudo": "https://crests.football-data.org/66.png",
+    "escudo_id": "club:manchester-united"
+   },
+   "visitante": {
+    "nombre": "Brentford",
+    "escudo": "https://crests.football-data.org/402.png",
+    "escudo_id": "club:brentford"
+   },
+   "canales": [
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879226"
+   }
+  },
+  {
+   "id": "fd564767",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-28T15:15:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Málaga",
+    "escudo": "https://crests.football-data.org/84.png",
+    "escudo_id": "club:malaga-cf"
+   },
+   "visitante": {
+    "nombre": "Athletic",
+    "escudo": "https://crests.football-data.org/77.png",
+    "escudo_id": "club:athletic-club-bilbao"
+   },
+   "canales": [
+    "DAZN LaLiga HD"
+   ],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true,
+   "espn": {
+    "liga": "esp.1",
+    "id": "401882790"
+   }
+  },
+  {
+   "id": "g2026-11-28-albacete-bp-tenerife",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-28T15:15:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Albacete BP",
+    "escudo": null,
+    "escudo_id": "club:albacete-balompie"
+   },
+   "visitante": {
+    "nombre": "Tenerife",
+    "escudo": null,
+    "escudo_id": "club:cd-tenerife"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401882297"
+   }
+  },
+  {
+   "id": "g2026-11-28-eldense-girona",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-28T15:15:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Eldense",
+    "escudo": null,
+    "escudo_id": "club:cd-eldense"
+   },
+   "visitante": {
+    "nombre": "Girona",
+    "escudo": null,
+    "escudo_id": "club:girona-fc"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion 2"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401882296"
+   }
+  },
+  {
+   "id": "fd559612",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T16:15:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Angers SCO",
+    "escudo": "https://crests.football-data.org/532.png",
+    "escudo_id": "club:angers-sco"
+   },
+   "visitante": {
+    "nombre": "RC Lens",
+    "escudo": "https://crests.football-data.org/546.png",
+    "escudo_id": "club:rc-lens"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876394"
+   }
+  },
+  {
+   "id": "fd558514",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-28T17:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Torino",
+    "escudo": "https://crests.football-data.org/586.png",
+    "escudo_id": "club:torino"
+   },
+   "visitante": {
+    "nombre": "Lazio",
+    "escudo": "https://crests.football-data.org/110.png",
+    "escudo_id": "club:lazio"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ita.1",
+    "id": "401874826"
+   }
+  },
+  {
+   "id": "fd564759",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-28T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Elche",
+    "escudo": "https://crests.football-data.org/285.png",
+    "escudo_id": "club:elche-cf"
+   },
+   "visitante": {
+    "nombre": "Atlético",
+    "escudo": "https://crests.football-data.org/78.png",
+    "escudo_id": "club:atletico-madrid"
+   },
+   "canales": [
+    "Movistar Plus HD",
+    "M+ LaLiga HD",
+    "M+ LaLiga 2 HD",
+    "M+ LaLiga HDR"
+   ],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true,
+   "espn": {
+    "liga": "esp.1",
+    "id": "401882793"
+   }
+  },
+  {
+   "id": "g2026-11-28-eibar-burgos",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-28T17:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Eibar",
+    "escudo": null,
+    "escudo_id": "club:sd-eibar"
+   },
+   "visitante": {
+    "nombre": "Burgos",
+    "escudo": null,
+    "escudo_id": "club:burgos-cf"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401883104"
+   }
+  },
+  {
+   "id": "fd560653",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Ipswich Town",
+    "escudo": "https://crests.football-data.org/349.png",
+    "escudo_id": "club:ipswich-town"
+   },
+   "visitante": {
+    "nombre": "Aston Villa",
+    "escudo": "https://crests.football-data.org/58.png",
+    "escudo_id": "club:aston-villa"
+   },
+   "canales": [
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401878752"
+   }
+  },
+  {
+   "id": "fd565870",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-28T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Stuttgart",
+    "escudo": "https://crests.football-data.org/10.png",
+    "escudo_id": "club:vfb-stuttgart"
+   },
+   "visitante": {
+    "nombre": "Frankfurt",
+    "escudo": "https://crests.football-data.org/19.png",
+    "escudo_id": "club:eintracht-frankfurt"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ger.1",
+    "id": "401884726"
+   }
+  },
+  {
+   "id": "g2026-11-28-al-ahli-al-taawoun",
+   "competicion": "Liga Saudí",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-28T17:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Al Ahli",
+    "escudo": null,
+    "escudo_id": "club:al-ahli"
+   },
+   "visitante": {
+    "nombre": "Al Taawoun",
+    "escudo": null,
+    "escudo_id": "club:al-taawoun"
+   },
+   "canales": [
+    "M+ Liga de Campeones HD",
+    "M+ Vamos 3"
+   ],
+   "prioridad": 18,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ksa.1",
+    "id": "401900876"
+   }
+  },
+  {
+   "id": "fd558518",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-28T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Inter",
+    "escudo": "https://crests.football-data.org/108.png",
+    "escudo_id": "club:inter-milan"
+   },
+   "visitante": {
+    "nombre": "Genoa",
+    "escudo": "https://crests.football-data.org/107.png",
+    "escudo_id": "club:genoa"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ita.1",
+    "id": "401874977"
+   }
+  },
+  {
+   "id": "fd559617",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Le Mans",
+    "escudo": "https://crests.football-data.org/535.png",
+    "escudo_id": "club:le-mans-fc"
+   },
+   "visitante": {
+    "nombre": "Lille",
+    "escudo": "https://crests.football-data.org/521.png",
+    "escudo_id": "club:losc-lille"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876390"
+   }
+  },
+  {
+   "id": "fd559620",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Nice",
+    "escudo": "https://crests.football-data.org/522.png",
+    "escudo_id": "club:ogc-nice"
+   },
+   "visitante": {
+    "nombre": "Troyes",
+    "escudo": "https://crests.football-data.org/531.png",
+    "escudo_id": "club:troyes"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876388"
+   }
+  },
+  {
+   "id": "fd559613",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Le Havre",
+    "escudo": "https://crests.football-data.org/533.png",
+    "escudo_id": "club:le-havre-ac"
+   },
+   "visitante": {
+    "nombre": "Strasbourg",
+    "escudo": "https://crests.football-data.org/576.png",
+    "escudo_id": "club:rc-strasbourg-alsace"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876391"
+   }
+  },
+  {
+   "id": "fd559614",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-28T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "PSG",
+    "escudo": "https://crests.football-data.org/524.png",
+    "escudo_id": "club:paris-saint-germain-psg"
+   },
+   "visitante": {
+    "nombre": "Lorient",
+    "escudo": "https://crests.football-data.org/525.png",
+    "escudo_id": "club:fc-lorient"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876387"
+   }
+  },
+  {
+   "id": "fd564762",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-28T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Real Madrid",
+    "escudo": "https://crests.football-data.org/86.png",
+    "escudo_id": "club:real-madrid"
+   },
+   "visitante": {
+    "nombre": "Alavés",
+    "escudo": "https://crests.football-data.org/263.png",
+    "escudo_id": "club:deportivo-alaves"
+   },
+   "canales": [
+    "M+ LaLiga HD",
+    "M+ LaLiga 2 HD",
+    "M+ LaLiga HDR"
+   ],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true,
+   "espn": {
+    "liga": "esp.1",
+    "id": "401882789"
+   }
+  },
+  {
+   "id": "g2026-11-28-real-valladolid-real-sociedad-b",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-28T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Real Valladolid",
+    "escudo": null,
+    "escudo_id": "club:real-valladolid"
+   },
+   "visitante": {
+    "nombre": "Real Sociedad B",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401883100"
+   }
+  },
+  {
+   "id": "g2026-11-28-palmeiras-estudiantes-plata",
+   "competicion": "Libertadores",
+   "ronda": "Final",
+   "inicio": "2026-11-28T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Palmeiras",
+    "escudo": "https://crests.football-data.org/1769.png",
+    "escudo_id": "club:palmeiras"
+   },
+   "visitante": {
+    "nombre": "Estudiantes de la Plata",
+    "escudo": null,
+    "escudo_id": "club:estudiantes-de-la-plata"
+   },
+   "canales": [
+    "M+ Liga de Campeones HD"
+   ],
+   "prioridad": 15,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "conmebol.libertadores",
+    "id": "401912519"
+   }
+  },
+  {
+   "id": "fd555101",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T00:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Botafogo",
+    "escudo": "https://crests.football-data.org/1770.png",
+    "escudo_id": "club:botafogo"
+   },
+   "visitante": {
+    "nombre": "Bahia",
+    "escudo": "https://crests.football-data.org/1777.png",
+    "escudo_id": "club:bahia"
+   },
+   "canales": [],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "bra.1",
+    "id": "401841336"
+   }
+  },
+  {
+   "id": "g2026-11-29-instituto-river-plate",
+   "competicion": "Liga Argentina",
+   "ronda": "Cuartos de Final",
+   "inicio": "2026-11-29T01:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Instituto",
+    "escudo": null,
+    "escudo_id": "club:instituto-cordoba"
+   },
+   "visitante": {
+    "nombre": "River Plate",
+    "escudo": null,
+    "escudo_id": "club:river-plate"
+   },
+   "canales": [
+    "M+ Liga de Campeones HD"
+   ],
+   "prioridad": 17,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "arg.1",
+    "id": "401936413"
+   }
+  },
+  {
+   "id": "fd558517",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-29T11:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Udinese",
+    "escudo": "https://crests.football-data.org/115.png",
+    "escudo_id": "club:udinese"
+   },
+   "visitante": {
+    "nombre": "Fiorentina",
+    "escudo": "https://crests.football-data.org/99.png",
+    "escudo_id": "club:fiorentina"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ita.1",
+    "id": "401875031"
+   }
+  },
+  {
+   "id": "fd560656",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T12:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Everton",
+    "escudo": "https://crests.football-data.org/62.png",
+    "escudo_id": "club:everton"
+   },
+   "visitante": {
+    "nombre": "Liverpool",
+    "escudo": "https://crests.football-data.org/64.png",
+    "escudo_id": "club:liverpool-fc"
+   },
+   "canales": [
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879229"
+   }
+  },
+  {
+   "id": "fd564761",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-29T13:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Valencia",
+    "escudo": "https://crests.football-data.org/95.png",
+    "escudo_id": "club:valencia-cf"
+   },
+   "visitante": {
+    "nombre": "Osasuna",
+    "escudo": "https://crests.football-data.org/79.png",
+    "escudo_id": "club:osasuna"
+   },
+   "canales": [
+    "DAZN LaLiga 2 HD"
+   ],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true,
+   "espn": {
+    "liga": "esp.1",
+    "id": "401882787"
+   }
+  },
+  {
+   "id": "g2026-11-29-granada-ceuta",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-29T13:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Granada",
+    "escudo": null,
+    "escudo_id": "club:granada"
+   },
+   "visitante": {
+    "nombre": "Ceuta",
+    "escudo": null,
+    "escudo_id": "club:ceuta"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401883103"
+   }
+  },
+  {
+   "id": "fd558509",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-29T14:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Sassuolo",
+    "escudo": "https://crests.football-data.org/471.png",
+    "escudo_id": "club:sassuolo"
+   },
+   "visitante": {
+    "nombre": "Napoli",
+    "escudo": "https://crests.football-data.org/113.png",
+    "escudo_id": "club:napoli"
+   },
+   "canales": [
+    "M+ Vamos HD",
+    "M+ Liga de Campeones HD"
+   ],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ita.1",
+    "id": "401874992"
+   }
+  },
+  {
+   "id": "fd559619",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T14:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Auxerre",
+    "escudo": "https://crests.football-data.org/519.png",
+    "escudo_id": "club:aj-auxerre"
+   },
+   "visitante": {
+    "nombre": "Marseille",
+    "escudo": "https://crests.football-data.org/516.png",
+    "escudo_id": "club:olympique-de-marseille-om"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876393"
+   }
+  },
+  {
+   "id": "fd560657",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T14:05:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Fulham",
+    "escudo": "https://crests.football-data.org/63.png",
+    "escudo_id": "club:fulham"
+   },
+   "visitante": {
+    "nombre": "Bournemouth",
+    "escudo": "https://crests.football-data.org/bournemouth.png",
+    "escudo_id": "club:afc-bournemouth"
+   },
+   "canales": [
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879228"
+   }
+  },
+  {
+   "id": "fd560659",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T14:05:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Brighton Hove",
+    "escudo": "https://crests.football-data.org/397.png",
+    "escudo_id": "club:brighton-and-hove-albion"
+   },
+   "visitante": {
+    "nombre": "Newcastle",
+    "escudo": "https://crests.football-data.org/67.png",
+    "escudo_id": "club:newcastle-united"
+   },
+   "canales": [
+    "DAZN 2 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879231"
+   }
+  },
+  {
+   "id": "fd560660",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T14:05:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Sunderland",
+    "escudo": "https://crests.football-data.org/71.png",
+    "escudo_id": "club:sunderland"
+   },
+   "visitante": {
+    "nombre": "Tottenham",
+    "escudo": "https://crests.football-data.org/73.png",
+    "escudo_id": "club:tottenham-hotspur"
+   },
+   "canales": [
+    "DAZN 3 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879224"
+   }
+  },
+  {
+   "id": "fd560661",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T14:05:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Crystal Palace",
+    "escudo": "https://crests.football-data.org/354.png",
+    "escudo_id": "club:crystal-palace"
+   },
+   "visitante": {
+    "nombre": "Hull City",
+    "escudo": "https://crests.football-data.org/322.png",
+    "escudo_id": "club:hull-city"
+   },
+   "canales": [
+    "DAZN 4 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401879230"
+   }
+  },
+  {
+   "id": "fd565873",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-29T14:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Freiburg",
+    "escudo": "https://crests.football-data.org/17.png",
+    "escudo_id": "club:sc-freiburg"
+   },
+   "visitante": {
+    "nombre": "RB Leipzig",
+    "escudo": "https://crests.football-data.org/721.png",
+    "escudo_id": "club:rb-leipzig"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ger.1",
+    "id": "401884724"
+   }
+  },
+  {
+   "id": "fd564766",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-29T15:15:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Deportivo",
+    "escudo": "https://crests.football-data.org/560.png",
+    "escudo_id": "club:deportivo-la-coruna"
+   },
+   "visitante": {
+    "nombre": "Barcelona",
+    "escudo": "https://crests.football-data.org/81.png",
+    "escudo_id": "club:fc-barcelona"
+   },
+   "canales": [
+    "DAZN LaLiga HD"
+   ],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true,
+   "espn": {
+    "liga": "esp.1",
+    "id": "401882794"
+   }
+  },
+  {
+   "id": "g2026-11-29-mallorca-castellon",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-29T15:15:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Mallorca",
+    "escudo": null,
+    "escudo_id": "club:rcd-mallorca"
+   },
+   "visitante": {
+    "nombre": "Castellón",
+    "escudo": null,
+    "escudo_id": "club:cd-castellon"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "esp.2",
+    "id": "401882295"
+   }
+  },
+  {
+   "id": "fd559618",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T16:15:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Toulouse",
+    "escudo": "https://crests.football-data.org/511.png",
+    "escudo_id": "club:toulouse-fc"
+   },
+   "visitante": {
+    "nombre": "Stade Rennais",
+    "escudo": "https://crests.football-data.org/529.png",
+    "escudo_id": "club:stade-rennais"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "fra.1",
+    "id": "401876386"
+   }
+  },
+  {
+   "id": "fd560654",
+   "competicion": "Premier League",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T16:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Arsenal",
+    "escudo": "https://crests.football-data.org/57.png",
+    "escudo_id": "club:arsenal"
+   },
+   "visitante": {
+    "nombre": "Man City",
+    "escudo": "https://crests.football-data.org/65.png",
+    "escudo_id": "club:manchester-city"
+   },
+   "canales": [
+    "M+ Vamos HD",
+    "M+ Liga de Campeones HD",
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "eng.1",
+    "id": "401878753"
+   }
+  },
+  {
+   "id": "fd565871",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-29T16:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Hoffenheim",
+    "escudo": "https://crests.football-data.org/2.png",
+    "escudo_id": "club:tsg-hoffenheim"
+   },
+   "visitante": {
+    "nombre": "Augsburg",
+    "escudo": "https://crests.football-data.org/16.png",
+    "escudo_id": "club:fc-augsburg"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false,
+   "espn": {
+    "liga": "ger.1",
+    "id": "401884725"
+   }
+  },
+  {
+   "id": "fd558512",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-29T17:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Roma",
+    "escudo": "https://crests.football-data.org/100.png",
+    "escudo_id": "club:roma"
+   },
+   "visitante": {
+    "nombre": "Monza",
+    "escudo": "https://crests.football-data.org/5911.png",
+    "escudo_id": "club:ac-monza"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd564758",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-29T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Celta",
+    "escudo": "https://crests.football-data.org/558.png",
+    "escudo_id": "club:celta-vigo"
+   },
+   "visitante": {
+    "nombre": "Villarreal",
+    "escudo": "https://crests.football-data.org/94.png",
+    "escudo_id": "club:villarreal-cf"
+   },
+   "canales": [
+    "M+ LaLiga HD",
+    "M+ LaLiga 2 HD",
+    "M+ LaLiga HDR"
+   ],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-11-29-cadiz-cordoba",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-29T17:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Cádiz",
+    "escudo": null,
+    "escudo_id": "club:cadiz-cf"
+   },
+   "visitante": {
+    "nombre": "Córdoba",
+    "escudo": null,
+    "escudo_id": "club:cordoba"
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd565872",
+   "competicion": "Bundesliga",
+   "ronda": "Jornada 11",
+   "inicio": "2026-11-29T18:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Dortmund",
+    "escudo": "https://crests.football-data.org/4.png",
+    "escudo_id": "club:borussia-dortmund"
+   },
+   "visitante": {
+    "nombre": "Leverkusen",
+    "escudo": "https://crests.football-data.org/3.png",
+    "escudo_id": "club:bayer-leverkusen"
+   },
+   "canales": [],
+   "prioridad": 12,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd555104",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T19:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Coritiba",
+    "escudo": "https://crests.football-data.org/4241.png",
+    "escudo_id": "club:coritiba"
+   },
+   "visitante": {
+    "nombre": "Flamengo",
+    "escudo": "https://crests.football-data.org/1783.png",
+    "escudo_id": "club:flamengo"
+   },
+   "canales": [
+    "M+ Liga de Campeones 2 HD",
+    "M+ Vamos 3"
+   ],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd555109",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T19:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Vitória",
+    "escudo": "https://crests.football-data.org/1782.png",
+    "escudo_id": "club:vitoria"
+   },
+   "visitante": {
+    "nombre": "Santos",
+    "escudo": "https://crests.football-data.org/6685.png",
+    "escudo_id": "club:santos-fc"
+   },
+   "canales": [],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd558511",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-29T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Como 1907",
+    "escudo": "https://crests.football-data.org/7397.png",
+    "escudo_id": "club:como-1907"
+   },
+   "visitante": {
+    "nombre": "Juventus",
+    "escudo": "https://crests.football-data.org/109.png",
+    "escudo_id": "club:juventus"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd559615",
+   "competicion": "Ligue 1",
+   "ronda": "Jornada 12",
+   "inicio": "2026-11-29T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Olympique Lyon",
+    "escudo": "https://crests.football-data.org/523.png",
+    "escudo_id": "club:olympique-lyonnais"
+   },
+   "visitante": {
+    "nombre": "Monaco",
+    "escudo": "https://crests.football-data.org/548.png",
+    "escudo_id": "club:as-monaco"
+   },
+   "canales": [],
+   "prioridad": 13,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd564764",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-29T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Real Sociedad",
+    "escudo": "https://crests.football-data.org/92.png",
+    "escudo_id": "club:real-sociedad"
+   },
+   "visitante": {
+    "nombre": "Sevilla",
+    "escudo": "https://crests.football-data.org/559.png",
+    "escudo_id": "club:sevilla-fc"
+   },
+   "canales": [
+    "DAZN LaLiga HD"
+   ],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-11-29-almeria-real-sporting",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-29T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Almería",
+    "escudo": null,
+    "escudo_id": "club:ud-almeria"
+   },
+   "visitante": {
+    "nombre": "Real Sporting",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD",
+    "LaLiga TV Hypermotion 2"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd555103",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T21:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Corinthians",
+    "escudo": "https://crests.football-data.org/1779.png",
+    "escudo_id": "club:corinthians"
+   },
+   "visitante": {
+    "nombre": "Grêmio",
+    "escudo": "https://crests.football-data.org/1767.png",
+    "escudo_id": "club:gremio"
+   },
+   "canales": [],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd555106",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T21:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Internacional",
+    "escudo": "https://crests.football-data.org/6684.png",
+    "escudo_id": "club:sc-internacional"
+   },
+   "visitante": {
+    "nombre": "Bragantino",
+    "escudo": "https://crests.football-data.org/4286.png",
+    "escudo_id": "club:rb-bragantino"
+   },
+   "canales": [],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd555107",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T21:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Mirassol",
+    "escudo": "https://crests.football-data.org/4364.png",
+    "escudo_id": "club:mirassol-fc"
+   },
+   "visitante": {
+    "nombre": "Paranaense",
+    "escudo": "https://crests.football-data.org/1768.png",
+    "escudo_id": "club:athletico-paranaense"
+   },
+   "canales": [],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd555100",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 37",
+   "inicio": "2026-11-29T22:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Mineiro",
+    "escudo": "https://crests.football-data.org/1766.png",
+    "escudo_id": "club:atletico-mineiro"
+   },
+   "visitante": {
+    "nombre": "Vasco da Gama",
+    "escudo": "https://crests.football-data.org/1780.png",
+    "escudo_id": "club:vasco-da-gama"
+   },
+   "canales": [],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-11-29-boca-juniors-gimnasia",
+   "competicion": "Liga Argentina",
+   "ronda": "Cuartos de Final",
+   "inicio": "2026-11-29T23:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Boca Juniors",
+    "escudo": null,
+    "escudo_id": "club:boca-juniors"
+   },
+   "visitante": {
+    "nombre": "Gimnasia",
+    "escudo": null,
+    "escudo_id": "club:gimnasia-y-esgrima-lp"
+   },
+   "canales": [
+    "M+ Liga de Campeones HD",
+    "M+ Vamos 2"
+   ],
+   "prioridad": 17,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd558516",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-30T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Lecce",
+    "escudo": "https://crests.football-data.org/5890.png",
+    "escudo_id": "club:lecce"
+   },
+   "visitante": {
+    "nombre": "Atalanta",
+    "escudo": "https://crests.football-data.org/102.png",
+    "escudo_id": "club:atalanta"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-11-30-real-oviedo-celta-b",
+   "competicion": "Hypermotion",
+   "ronda": "Jornada 16",
+   "inicio": "2026-11-30T19:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Real Oviedo",
+    "escudo": null,
+    "escudo_id": "club:real-oviedo"
+   },
+   "visitante": {
+    "nombre": "Celta B",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "canales": [
+    "LaLiga TV Hypermotion HD",
+    "LaLiga TV Hypermotion 2"
+   ],
+   "prioridad": 8,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd558510",
+   "competicion": "Serie A",
+   "ronda": "Jornada 13",
+   "inicio": "2026-11-30T19:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Cagliari",
+    "escudo": "https://crests.football-data.org/104.png",
+    "escudo_id": "club:cagliari"
+   },
+   "visitante": {
+    "nombre": "Milan",
+    "escudo": "https://crests.football-data.org/98.png",
+    "escudo_id": "club:ac-milan"
+   },
+   "canales": [],
+   "prioridad": 11,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd564763",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 14",
+   "inicio": "2026-11-30T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Espanyol",
+    "escudo": "https://crests.football-data.org/80.png",
+    "escudo_id": "club:rcd-espanyol-barcelona"
+   },
+   "visitante": {
+    "nombre": "Getafe",
+    "escudo": "https://crests.football-data.org/82.png",
+    "escudo_id": "club:getafe-cf"
+   },
+   "canales": [
+    "DAZN LaLiga HD"
+   ],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-reus-racing-santander",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-01T18:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Reus",
+    "escudo": null,
+    "escudo_id": "club:reus-fc-reddis"
+   },
+   "visitante": {
+    "nombre": "Racing",
+    "escudo": "https://crests.football-data.org/5335.png",
+    "escudo_id": "club:racing-santander"
+   },
+   "canales": [
+    "M+ LaLiga HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-antequera-levante",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-01T18:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Antequera",
+    "escudo": null,
+    "escudo_id": "club:antequera-cf"
+   },
+   "visitante": {
+    "nombre": "Levante",
+    "escudo": "https://crests.football-data.org/88.png",
+    "escudo_id": "club:levante-ud"
+   },
+   "canales": [
+    "M+ LaLiga 2 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-numancia-athletic",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-01T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Numancia",
+    "escudo": null,
+    "escudo_id": "club:numancia"
+   },
+   "visitante": {
+    "nombre": "Athletic",
+    "escudo": "https://crests.football-data.org/77.png",
+    "escudo_id": "club:athletic-club-bilbao"
+   },
+   "canales": [
+    "M+ LaLiga HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-ce-europa-rayo-vallecano",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-01T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "CE Europa",
+    "escudo": null,
+    "escudo_id": "club:ce-europa"
+   },
+   "visitante": {
+    "nombre": "Rayo Vallecano",
+    "escudo": "https://crests.football-data.org/87.png",
+    "escudo_id": "club:rayo-vallecano"
+   },
+   "canales": [
+    "M+ LaLiga 2 HD",
+    "M+ Liga de Campeones 2 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-cartagena-elche",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-01T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Cartagena",
+    "escudo": null,
+    "escudo_id": "club:fc-cartagena"
+   },
+   "visitante": {
+    "nombre": "Elche",
+    "escudo": "https://crests.football-data.org/285.png",
+    "escudo_id": "club:elche-cf"
+   },
+   "canales": [
+    "M+ LaLiga 3 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-gimnastica-torrelavega-alaves",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-01T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Gimnástica Torrelavega",
+    "escudo": null,
+    "escudo_id": "club:gimnastica-torrelavega"
+   },
+   "visitante": {
+    "nombre": "Alavés",
+    "escudo": "https://crests.football-data.org/263.png",
+    "escudo_id": "club:deportivo-alaves"
+   },
+   "canales": [
+    "M+ LaLiga 4",
+    "DAZN LaLiga 6"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-01-coventry-city-ipswich-town",
+   "competicion": "Premier League",
+   "ronda": "Jornada 13",
+   "inicio": "2026-12-01T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Coventry City",
+    "escudo": "https://crests.football-data.org/1076.png",
+    "escudo_id": "club:coventry-city"
+   },
+   "visitante": {
+    "nombre": "Ipswich Town",
+    "escudo": "https://crests.football-data.org/349.png",
+    "escudo_id": "club:ipswich-town"
+   },
+   "canales": [
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-02-kibirkstis-casademont-zaragoza",
+   "competicion": "Liga F",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-02T17:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Kibirkstis",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "visitante": {
+    "nombre": "Casademont Zaragoza",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "canales": [
+    "M+ Vamos HD"
+   ],
+   "prioridad": 9,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-02-rapid-valencia-basket",
+   "competicion": "Liga F",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-02T17:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Rapid",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "visitante": {
+    "nombre": "Valencia",
+    "escudo": "https://crests.football-data.org/95.png",
+    "escudo_id": "club:valencia-cf"
+   },
+   "canales": [
+    "M+ Baloncesto"
+   ],
+   "prioridad": 9,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564855",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 23",
+   "inicio": "2026-12-02T18:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Real Sociedad",
+    "escudo": "https://crests.football-data.org/92.png",
+    "escudo_id": "club:real-sociedad"
+   },
+   "visitante": {
+    "nombre": "Real Madrid",
+    "escudo": "https://crests.football-data.org/86.png",
+    "escudo_id": "club:real-madrid"
+   },
+   "canales": [
+    "Movistar Plus HD",
+    "M+ LaLiga HD",
+    "M+ LaLiga HDR"
+   ],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-02-portugalete-deportivo-coruna",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-02T18:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Club Portugalete",
+    "escudo": null,
+    "escudo_id": "club:portugalete"
+   },
+   "visitante": {
+    "nombre": "Deportivo",
+    "escudo": "https://crests.football-data.org/560.png",
+    "escudo_id": "club:deportivo-la-coruna"
+   },
+   "canales": [
+    "M+ LaLiga 2 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-02-manchester-city-leeds",
+   "competicion": "Premier League",
+   "ronda": "Jornada 13",
+   "inicio": "2026-12-02T19:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Man City",
+    "escudo": "https://crests.football-data.org/65.png",
+    "escudo_id": "club:manchester-city"
+   },
+   "visitante": {
+    "nombre": "Leeds United",
+    "escudo": "https://crests.football-data.org/341.png",
+    "escudo_id": "club:leeds-united"
+   },
+   "canales": [
+    "DAZN 2 HD",
+    "M+ Vamos 2"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-02-liverpool-sunderland",
+   "competicion": "Premier League",
+   "ronda": "Jornada 13",
+   "inicio": "2026-12-02T19:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Liverpool",
+    "escudo": "https://crests.football-data.org/64.png",
+    "escudo_id": "club:liverpool-fc"
+   },
+   "visitante": {
+    "nombre": "Sunderland",
+    "escudo": "https://crests.football-data.org/71.png",
+    "escudo_id": "club:sunderland"
+   },
+   "canales": [
+    "DAZN 3 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-02-chelsea-crystal-palace",
+   "competicion": "Premier League",
+   "ronda": "Jornada 13",
+   "inicio": "2026-12-02T19:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Chelsea",
+    "escudo": "https://crests.football-data.org/61.png",
+    "escudo_id": "club:chelsea"
+   },
+   "visitante": {
+    "nombre": "Crystal Palace",
+    "escudo": "https://crests.football-data.org/354.png",
+    "escudo_id": "club:crystal-palace"
+   },
+   "canales": [
+    "DAZN 4 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-02-sestao-river-villarreal",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-02T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Sestao River Club",
+    "escudo": null,
+    "escudo_id": "club:sestao-river"
+   },
+   "visitante": {
+    "nombre": "Villarreal",
+    "escudo": "https://crests.football-data.org/94.png",
+    "escudo_id": "club:villarreal-cf"
+   },
+   "canales": [
+    "M+ LaLiga 3 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-02-arosa-celta-vigo",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-02T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Arosa SC",
+    "escudo": null,
+    "escudo_id": "club:arosa-sc"
+   },
+   "visitante": {
+    "nombre": "Celta",
+    "escudo": "https://crests.football-data.org/558.png",
+    "escudo_id": "club:celta-vigo"
+   },
+   "canales": [
+    "M+ LaLiga 4",
+    "DAZN LaLiga 6"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-02-brentford-arsenal",
+   "competicion": "Premier League",
+   "ronda": "Jornada 13",
+   "inicio": "2026-12-02T20:15:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Brentford",
+    "escudo": "https://crests.football-data.org/402.png",
+    "escudo_id": "club:brentford"
+   },
+   "visitante": {
+    "nombre": "Arsenal",
+    "escudo": "https://crests.football-data.org/57.png",
+    "escudo_id": "club:arsenal"
+   },
+   "canales": [
+    "M+ Vamos HD",
+    "M+ Liga de Campeones HD",
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd564857",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 23",
+   "inicio": "2026-12-02T20:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Barcelona",
+    "escudo": "https://crests.football-data.org/81.png",
+    "escudo_id": "club:fc-barcelona"
+   },
+   "visitante": {
+    "nombre": "Atlético",
+    "escudo": "https://crests.football-data.org/78.png",
+    "escudo_id": "club:atletico-madrid"
+   },
+   "canales": [
+    "DAZN LaLiga HD"
+   ],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-03-cruzeiro-internacional",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 38",
+   "inicio": "2026-12-03T00:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Cruzeiro",
+    "escudo": "https://crests.football-data.org/1771.png",
+    "escudo_id": "club:cruzeiro"
+   },
+   "visitante": {
+    "nombre": "Internacional",
+    "escudo": "https://crests.football-data.org/6684.png",
+    "escudo_id": "club:sc-internacional"
+   },
+   "canales": [
+    "M+ Vamos HD",
+    "M+ Liga de Campeones HD"
+   ],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-03-santos-botafogo",
+   "competicion": "Brasileirão",
+   "ronda": "Jornada 38",
+   "inicio": "2026-12-03T00:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Santos",
+    "escudo": "https://crests.football-data.org/6685.png",
+    "escudo_id": "club:santos-fc"
+   },
+   "visitante": {
+    "nombre": "Botafogo",
+    "escudo": "https://crests.football-data.org/1770.png",
+    "escudo_id": "club:botafogo"
+   },
+   "canales": [
+    "M+ Liga de Campeones 2 HD",
+    "M+ Vamos 2"
+   ],
+   "prioridad": 16,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-03-al-hilal-dyriyah",
+   "competicion": "Liga Saudí",
+   "ronda": "Jornada 14",
+   "inicio": "2026-12-03T17:30:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Al Hilal",
+    "escudo": null,
+    "escudo_id": "club:al-hilal"
+   },
+   "visitante": {
+    "nombre": "Dyriyah",
+    "escudo": null,
+    "escudo_id": null
+   },
+   "canales": [
+    "M+ Liga de Campeones HD",
+    "M+ Vamos 3"
+   ],
+   "prioridad": 18,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-03-atletico-paso-sevilla",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-03T18:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Atlético Paso",
+    "escudo": null,
+    "escudo_id": "club:cd-atletico-paso"
+   },
+   "visitante": {
+    "nombre": "Sevilla",
+    "escudo": "https://crests.football-data.org/559.png",
+    "escudo_id": "club:sevilla-fc"
+   },
+   "canales": [
+    "M+ Vamos HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-03-real-avila-getafe",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-03T18:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Real Ávila",
+    "escudo": null,
+    "escudo_id": "club:real-avila"
+   },
+   "visitante": {
+    "nombre": "Getafe",
+    "escudo": "https://crests.football-data.org/82.png",
+    "escudo_id": "club:getafe-cf"
+   },
+   "canales": [
+    "M+ LaLiga HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-03-real-jaen-valencia",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-03T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Real Jaén",
+    "escudo": null,
+    "escudo_id": "club:real-jaen-cf"
+   },
+   "visitante": {
+    "nombre": "Valencia",
+    "escudo": "https://crests.football-data.org/95.png",
+    "escudo_id": "club:valencia-cf"
+   },
+   "canales": [
+    "M+ LaLiga HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-03-amorebieta-osasuna",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-03T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Amorebieta",
+    "escudo": null,
+    "escudo_id": "club:sd-amorebieta"
+   },
+   "visitante": {
+    "nombre": "Osasuna",
+    "escudo": "https://crests.football-data.org/79.png",
+    "escudo_id": "club:osasuna"
+   },
+   "canales": [
+    "M+ LaLiga 2 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-03-coria-malaga",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-03T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Coria",
+    "escudo": null,
+    "escudo_id": "club:cd-coria"
+   },
+   "visitante": {
+    "nombre": "Málaga",
+    "escudo": "https://crests.football-data.org/84.png",
+    "escudo_id": "club:malaga-cf"
+   },
+   "canales": [
+    "M+ LaLiga 3 HD"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "g2026-12-03-real-zaragoza-burgos",
+   "competicion": "Copa del Rey",
+   "ronda": "Segunda ronda",
+   "inicio": "2026-12-03T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Real Zaragoza",
+    "escudo": null,
+    "escudo_id": "club:real-zaragoza"
+   },
+   "visitante": {
+    "nombre": "Burgos",
+    "escudo": null,
+    "escudo_id": "club:burgos-cf"
+   },
+   "canales": [
+    "M+ LaLiga 4",
+    "DAZN LaLiga 6"
+   ],
+   "prioridad": 4,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "g2026-12-03-tottenham-fulham",
+   "competicion": "Premier League",
+   "ronda": "Jornada 13",
+   "inicio": "2026-12-03T20:00:00Z",
+   "estado": null,
+   "marcador": null,
+   "local": {
+    "nombre": "Tottenham",
+    "escudo": "https://crests.football-data.org/73.png",
+    "escudo_id": "club:tottenham-hotspur"
+   },
+   "visitante": {
+    "nombre": "Fulham",
+    "escudo": "https://crests.football-data.org/63.png",
+    "escudo_id": "club:fulham"
+   },
+   "canales": [
+    "DAZN 1 HD"
+   ],
+   "prioridad": 10,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd564770",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-04T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Alavés",
+    "escudo": "https://crests.football-data.org/263.png",
+    "escudo_id": "club:deportivo-alaves"
+   },
+   "visitante": {
+    "nombre": "Espanyol",
+    "escudo": "https://crests.football-data.org/80.png",
+    "escudo_id": "club:rcd-espanyol-barcelona"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564772",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-05T13:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Racing",
+    "escudo": "https://crests.football-data.org/5335.png",
+    "escudo_id": "club:racing-santander"
+   },
+   "visitante": {
+    "nombre": "Deportivo",
+    "escudo": "https://crests.football-data.org/560.png",
+    "escudo_id": "club:deportivo-la-coruna"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564777",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-05T15:15:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Rayo Vallecano",
+    "escudo": "https://crests.football-data.org/87.png",
+    "escudo_id": "club:rayo-vallecano"
+   },
+   "visitante": {
+    "nombre": "Levante",
+    "escudo": "https://crests.football-data.org/88.png",
+    "escudo_id": "club:levante-ud"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564776",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-05T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Villarreal",
+    "escudo": "https://crests.football-data.org/94.png",
+    "escudo_id": "club:villarreal-cf"
+   },
+   "visitante": {
+    "nombre": "Real Sociedad",
+    "escudo": "https://crests.football-data.org/92.png",
+    "escudo_id": "club:real-sociedad"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564773",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-05T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Barcelona",
+    "escudo": "https://crests.football-data.org/81.png",
+    "escudo_id": "club:fc-barcelona"
+   },
+   "visitante": {
+    "nombre": "Celta",
+    "escudo": "https://crests.football-data.org/558.png",
+    "escudo_id": "club:celta-vigo"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "fd564768",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-06T13:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Osasuna",
+    "escudo": "https://crests.football-data.org/79.png",
+    "escudo_id": "club:osasuna"
+   },
+   "visitante": {
+    "nombre": "Elche",
+    "escudo": "https://crests.football-data.org/285.png",
+    "escudo_id": "club:elche-cf"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564775",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-06T15:15:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Athletic",
+    "escudo": "https://crests.football-data.org/77.png",
+    "escudo_id": "club:athletic-club-bilbao"
+   },
+   "visitante": {
+    "nombre": "Real Madrid",
+    "escudo": "https://crests.football-data.org/86.png",
+    "escudo_id": "club:real-madrid"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "fd564774",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-06T17:30:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Getafe",
+    "escudo": "https://crests.football-data.org/82.png",
+    "escudo_id": "club:getafe-cf"
+   },
+   "visitante": {
+    "nombre": "Valencia",
+    "escudo": "https://crests.football-data.org/95.png",
+    "escudo_id": "club:valencia-cf"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd564771",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-06T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Atlético",
+    "escudo": "https://crests.football-data.org/78.png",
+    "escudo_id": "club:atletico-madrid"
+   },
+   "visitante": {
+    "nombre": "Real Betis",
+    "escudo": "https://crests.football-data.org/90.png",
+    "escudo_id": "club:real-betis-balompie"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "fd564769",
+   "competicion": "LaLiga",
+   "ronda": "Jornada 15",
+   "inicio": "2026-12-07T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Sevilla",
+    "escudo": "https://crests.football-data.org/559.png",
+    "escudo_id": "club:sevilla-fc"
+   },
+   "visitante": {
+    "nombre": "Málaga",
+    "escudo": "https://crests.football-data.org/84.png",
+    "escudo_id": "club:malaga-cf"
+   },
+   "canales": [],
+   "prioridad": 3,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd575413",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T17:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Villarreal",
+    "escudo": "https://crests.football-data.org/94.png",
+    "escudo_id": "club:villarreal-cf"
+   },
+   "visitante": {
+    "nombre": "Sabah FK",
+    "escudo": "https://crests.football-data.org/10233.png",
+    "escudo_id": "club:sabah-fk"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd575414",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T17:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Viking",
+    "escudo": "https://crests.football-data.org/5720.png",
+    "escudo_id": "club:viking-fk"
+   },
+   "visitante": {
+    "nombre": "Feyenoord",
+    "escudo": "https://crests.football-data.org/675.png",
+    "escudo_id": "club:feyenoord"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575415",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Barcelona",
+    "escudo": "https://crests.football-data.org/81.png",
+    "escudo_id": "club:fc-barcelona"
+   },
+   "visitante": {
+    "nombre": "Man City",
+    "escudo": "https://crests.football-data.org/65.png",
+    "escudo_id": "club:manchester-city"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "fd575416",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Aston Villa",
+    "escudo": "https://crests.football-data.org/58.png",
+    "escudo_id": "club:aston-villa"
+   },
+   "visitante": {
+    "nombre": "PSG",
+    "escudo": "https://crests.football-data.org/524.png",
+    "escudo_id": "club:paris-saint-germain-psg"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575417",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Bayern",
+    "escudo": "https://crests.football-data.org/5.png",
+    "escudo_id": "club:bayern-munich"
+   },
+   "visitante": {
+    "nombre": "Slavia Praha",
+    "escudo": "https://crests.football-data.org/930.png",
+    "escudo_id": "club:slavia-praha"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575418",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Napoli",
+    "escudo": "https://crests.football-data.org/113.png",
+    "escudo_id": "club:napoli"
+   },
+   "visitante": {
+    "nombre": "Club Brugge",
+    "escudo": "https://crests.football-data.org/851.png",
+    "escudo_id": "club:club-brugge"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575419",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Roma",
+    "escudo": "https://crests.football-data.org/100.png",
+    "escudo_id": "club:roma"
+   },
+   "visitante": {
+    "nombre": "Sporting CP",
+    "escudo": "https://crests.football-data.org/498.png",
+    "escudo_id": "club:sporting-cp"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575420",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Man United",
+    "escudo": "https://crests.football-data.org/66.png",
+    "escudo_id": "club:manchester-united"
+   },
+   "visitante": {
+    "nombre": "RB Leipzig",
+    "escudo": "https://crests.football-data.org/721.png",
+    "escudo_id": "club:rb-leipzig"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575421",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-08T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "PAE AEK",
+    "escudo": "https://crests.football-data.org/1899.png",
+    "escudo_id": "club:aek-athens"
+   },
+   "visitante": {
+    "nombre": "Galatasaray",
+    "escudo": "https://crests.football-data.org/610.png",
+    "escudo_id": "club:galatasaray"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575422",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T17:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Real Betis",
+    "escudo": "https://crests.football-data.org/90.png",
+    "escudo_id": "club:real-betis-balompie"
+   },
+   "visitante": {
+    "nombre": "Como 1907",
+    "escudo": "https://crests.football-data.org/7397.png",
+    "escudo_id": "club:como-1907"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": true
+  },
+  {
+   "id": "fd575423",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T17:45:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Sl. Bratislava",
+    "escudo": "https://crests.football-data.org/7509.png",
+    "escudo_id": "club:sk-slovan-bratislava"
+   },
+   "visitante": {
+    "nombre": "Shaktar",
+    "escudo": "https://crests.football-data.org/1887.png",
+    "escudo_id": "club:shakhtar-donetsk"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575280",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Arsenal",
+    "escudo": "https://crests.football-data.org/57.png",
+    "escudo_id": "club:arsenal"
+   },
+   "visitante": {
+    "nombre": "Real Madrid",
+    "escudo": "https://crests.football-data.org/86.png",
+    "escudo_id": "club:real-madrid"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "fd575286",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Dortmund",
+    "escudo": "https://crests.football-data.org/4.png",
+    "escudo_id": "club:borussia-dortmund"
+   },
+   "visitante": {
+    "nombre": "Inter",
+    "escudo": "https://crests.football-data.org/108.png",
+    "escudo_id": "club:inter-milan"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575290",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "PSV",
+    "escudo": "https://crests.football-data.org/674.png",
+    "escudo_id": "club:psv-eindhoven"
+   },
+   "visitante": {
+    "nombre": "Atlético",
+    "escudo": "https://crests.football-data.org/78.png",
+    "escudo_id": "club:atletico-madrid"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": true,
+   "espanol": true
+  },
+  {
+   "id": "fd575295",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Liverpool",
+    "escudo": "https://crests.football-data.org/64.png",
+    "escudo_id": "club:liverpool-fc"
+   },
+   "visitante": {
+    "nombre": "Porto",
+    "escudo": "https://crests.football-data.org/503.png",
+    "escudo_id": "club:fc-porto"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575315",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "RC Lens",
+    "escudo": "https://crests.football-data.org/546.png",
+    "escudo_id": "club:rc-lens"
+   },
+   "visitante": {
+    "nombre": "Bodø/Glimt",
+    "escudo": "https://crests.football-data.org/5721.png",
+    "escudo_id": "club:fk-bodo-glimt"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575317",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "LASK",
+    "escudo": "https://crests.football-data.org/2016.png",
+    "escudo_id": "club:lask"
+   },
+   "visitante": {
+    "nombre": "Fenerbahçe",
+    "escudo": "https://crests.football-data.org/613.png",
+    "escudo_id": "club:fenerbahce"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  },
+  {
+   "id": "fd575322",
+   "competicion": "Champions",
+   "ronda": "Jornada 6",
+   "inicio": "2026-12-09T20:00:00Z",
+   "estado": "PROGRAMADO",
+   "marcador": null,
+   "local": {
+    "nombre": "Stuttgart",
+    "escudo": "https://crests.football-data.org/10.png",
+    "escudo_id": "club:vfb-stuttgart"
+   },
+   "visitante": {
+    "nombre": "Lille",
+    "escudo": "https://crests.football-data.org/521.png",
+    "escudo_id": "club:losc-lille"
+   },
+   "canales": [],
+   "prioridad": 1,
+   "destacado": false,
+   "espanol": false
+  }
+ ]
+}
